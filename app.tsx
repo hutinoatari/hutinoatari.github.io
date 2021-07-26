@@ -1,5 +1,4 @@
 import React from "react";
-import "./style/top.css"
 
 const App = ({ Page, PageProps }) => {
   return (
