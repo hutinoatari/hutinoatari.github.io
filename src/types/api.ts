@@ -16,7 +16,6 @@ export type ContentResponse<T> = {
 export type BlogResponse = ContentResponse<{
     title: string;
     body: string;
-    url: string;
 }>;
 
 export type BlogListResponse = ListContentsResponse<BlogResponse>;
