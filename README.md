@@ -1,1 +1,1 @@
-# hutinoatariBlog
+# hutinoatari-blog

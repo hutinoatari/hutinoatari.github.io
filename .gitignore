@@ -1,3 +1,2 @@
-Thumbs.db
-.aleph/
-dist/
+/node_modules
+.next

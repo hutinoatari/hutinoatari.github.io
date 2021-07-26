@@ -1,9 +1,0 @@
-import React from "react";
-
-const Top = () => {
-  return (
-    <h1>淵野アタリのブログ</h1>
-  );
-};
-
-export default Top;
