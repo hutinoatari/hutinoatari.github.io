@@ -8,7 +8,7 @@
       "esnext"
     ],
     "allowJs": false,
-    "strict": true,
+    "strict": false,
     "noEmit": true,
     "jsx": "preserve",
     "allowSyntheticDefaultImports": true,
