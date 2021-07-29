@@ -2,12 +2,13 @@ import { FC } from "react";
 import Head from "next/head";
 import { client } from "../../libs/client";
 import { BlogListResponse, BlogResponse } from "../../types/api";
+import styles from "../../styles/blog.module.scss";
 
 interface Props {
     blog: BlogResponse;
 }
 
-const Top: FC<Props> = ({ blog }) => {
+const Blog: FC<Props> = ({ blog }) => {
     return (
         <>
             <Head>
@@ -15,7 +16,10 @@ const Top: FC<Props> = ({ blog }) => {
                 <meta name="twitter:card" content="summary" />
             </Head>
             <h1>{blog.title}</h1>
-            <main dangerouslySetInnerHTML={{ __html: `${blog.body}` }} />
+            <main
+                dangerouslySetInnerHTML={{ __html: `${blog.body}` }}
+                className={styles.post}
+            />
         </>
     );
 };
@@ -29,7 +33,6 @@ export const getStaticPaths = async () => {
 
 export const getStaticProps = async ({ params }) => {
     const { id } = params;
-    console.log(id);
     const data = await client.get<BlogResponse>({
         endpoint: "blog",
         contentId: id,
@@ -42,4 +45,4 @@ export const getStaticProps = async ({ params }) => {
     };
 };
 
-export default Top;
+export default Blog;
