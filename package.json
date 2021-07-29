@@ -5,6 +5,7 @@
     "@types/react-dom": "^17.0.9",
     "microcms-js-sdk": "^1.2.0",
     "next": "^11.0.1",
+    "prettier": "^2.3.2",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "sass": "^1.35.2",
@@ -13,6 +14,7 @@
   "scripts": {
     "dev": "next dev",
     "check": "tsc --noEmit",
+    "prettier": "prettier --write \"./src/**/*.{ts,tsx,scss}\" --tab-width 4",
     "build": "next build"
   }
 }

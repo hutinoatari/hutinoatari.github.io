@@ -3,7 +3,7 @@ export type ListContentsResponse<T> = {
     tptalCount: number;
     offset: number;
     limit: number;
-}
+};
 
 export type ContentResponse<T> = {
     id: string;
