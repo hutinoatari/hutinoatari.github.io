@@ -1,6 +1,7 @@
 import { FC } from "react";
 import Head from "next/head";
 import { client } from "../../libs/client";
+import { dateToYYYYMMDD } from "../../utils/util";
 import { BlogListResponse, BlogResponse } from "../../types/api";
 import styles from "../../styles/blog.module.scss";
 
@@ -16,6 +17,8 @@ const Blog: FC<Props> = ({ blog }) => {
                 <meta name="twitter:card" content="summary" />
             </Head>
             <h1>{blog.title}</h1>
+            <p>公開: {dateToYYYYMMDD(blog.publishedAt)}</p>
+            <p>更新: {dateToYYYYMMDD(blog.updatedAt)}</p>
             <main
                 dangerouslySetInnerHTML={{ __html: `${blog.body}` }}
                 className={styles.post}

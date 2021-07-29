@@ -1,6 +1,7 @@
 import { FC } from "react";
 import Link from "next/link";
 import { client } from "../libs/client";
+import { dateToYYYYMMDD } from "../utils/util";
 import { BlogListResponse, BlogResponse } from "../types/api";
 
 interface Props {
@@ -17,6 +18,7 @@ const Top: FC<Props> = ({ blog }) => {
                         <Link href={`/blog/${blog.id}`}>
                             <a>{blog.title}</a>
                         </Link>
+                        ({dateToYYYYMMDD(blog.publishedAt)})
                     </li>
                 ))}
             </ul>
