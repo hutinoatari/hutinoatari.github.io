@@ -17,17 +17,26 @@ const Top: FC<Props> = ({ blog }) => {
                 <meta name="og:title" content="淵野アタリのブログ" />
                 <meta name="twitter:card" content="summary" />
             </Head>
-            <h1>淵野アタリのブログ</h1>
-            <ul>
-                {blog.map((blog: BlogResponse) => (
-                    <li key={blog.id}>
-                        <Link href={`/blog/${blog.id}`}>
-                            <a>{blog.title}</a>
-                        </Link>
-                        ({dateToYYYYMMDD(blog.publishedAt)})
-                    </li>
-                ))}
-            </ul>
+            <header>
+                <h1>淵野アタリのブログ</h1>
+            </header>
+            <main>
+                <ul>
+                    {blog.map((blog: BlogResponse) => (
+                        <li key={blog.id}>
+                            <Link href={`/blog/${blog.id}`}>
+                                <a>{blog.title}</a>
+                            </Link>
+                            ({dateToYYYYMMDD(blog.publishedAt)})
+                        </li>
+                    ))}
+                </ul>
+            </main>
+            <footer>
+                <p>
+                    <small>(C)2021 淵野アタリ</small>
+                </p>
+            </footer>
         </>
     );
 };

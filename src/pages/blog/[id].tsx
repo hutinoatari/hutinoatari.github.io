@@ -17,13 +17,34 @@ const Blog: FC<Props> = ({ blog }) => {
                 <meta name="og:title" content={blog.title} />
                 <meta name="twitter:card" content="summary" />
             </Head>
-            <h1>{blog.title}</h1>
-            <p>公開: {dateToYYYYMMDD(blog.publishedAt)}</p>
-            <p>更新: {dateToYYYYMMDD(blog.updatedAt)}</p>
+            <header>
+                <h1>{blog.title}</h1>
+                <p>公開: {dateToYYYYMMDD(blog.publishedAt)}</p>
+                <p>更新: {dateToYYYYMMDD(blog.updatedAt)}</p>
+                <button
+                    onClick={() => {
+                        const baseURL = "https://twitter.com/intent/tweet";
+                        const text = `${blog.title} by 淵野アタリのブログ`;
+                        const url = `hutinoatari.dev/blog/${blog.id}`;
+                        const params = new URLSearchParams();
+                        params.append("text", text);
+                        params.append("url", url);
+                        const tweetURL = `${baseURL}?${params.toString()}`;
+                        window.open(tweetURL, "_blank");
+                    }}
+                >
+                    Twitterで共有する
+                </button>
+            </header>
             <main
                 dangerouslySetInnerHTML={{ __html: `${blog.body}` }}
                 className={styles.post}
             />
+            <footer>
+                <p>
+                    <small>(C)2021 淵野アタリ</small>
+                </p>
+            </footer>
         </>
     );
 };
