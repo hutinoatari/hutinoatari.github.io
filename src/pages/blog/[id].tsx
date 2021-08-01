@@ -13,6 +13,7 @@ const Blog: FC<Props> = ({ blog }) => {
     return (
         <>
             <Head>
+                <title>{blog.title} | 淵野アタリのブログ</title>
                 <meta name="og:title" content={blog.title} />
                 <meta name="twitter:card" content="summary" />
             </Head>

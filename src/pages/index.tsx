@@ -1,4 +1,5 @@
 import { FC } from "react";
+import Head from "next/head";
 import Link from "next/link";
 import { client } from "../libs/client";
 import { dateToYYYYMMDD } from "../utils/util";
@@ -11,6 +12,11 @@ interface Props {
 const Top: FC<Props> = ({ blog }) => {
     return (
         <>
+            <Head>
+                <title>淵野アタリのブログ</title>
+                <meta name="og:title" content="淵野アタリのブログ" />
+                <meta name="twitter:card" content="summary" />
+            </Head>
             <h1>淵野アタリのブログ</h1>
             <ul>
                 {blog.map((blog: BlogResponse) => (
