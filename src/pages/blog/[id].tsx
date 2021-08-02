@@ -1,5 +1,7 @@
 import { FC } from "react";
 import Head from "next/head";
+import Header from "../../components/Header";
+import Footer from "../../components/Footer";
 import { client } from "../../libs/client";
 import { dateToYYYYMMDD } from "../../utils/util";
 import { BlogListResponse, BlogResponse } from "../../types/api";
@@ -17,8 +19,7 @@ const Blog: FC<Props> = ({ blog }) => {
                 <meta name="og:title" content={blog.title} />
                 <meta name="twitter:card" content="summary" />
             </Head>
-            <header>
-                <h1>{blog.title}</h1>
+            <Header title={blog.title}>
                 <p>公開: {dateToYYYYMMDD(blog.publishedAt)}</p>
                 <p>更新: {dateToYYYYMMDD(blog.updatedAt)}</p>
                 <button
@@ -35,16 +36,12 @@ const Blog: FC<Props> = ({ blog }) => {
                 >
                     Twitterで共有する
                 </button>
-            </header>
+            </Header>
             <main
                 dangerouslySetInnerHTML={{ __html: `${blog.body}` }}
                 className={styles.post}
             />
-            <footer>
-                <p>
-                    <small>(C)2021 淵野アタリ</small>
-                </p>
-            </footer>
+            <Footer />
         </>
     );
 };

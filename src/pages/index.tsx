@@ -1,6 +1,8 @@
 import { FC } from "react";
 import Head from "next/head";
 import Link from "next/link";
+import Header from "../components/Header";
+import Footer from "../components/Footer";
 import { client } from "../libs/client";
 import { dateToYYYYMMDD } from "../utils/util";
 import { BlogListResponse, BlogResponse } from "../types/api";
@@ -17,9 +19,7 @@ const Top: FC<Props> = ({ blog }) => {
                 <meta name="og:title" content="淵野アタリのブログ" />
                 <meta name="twitter:card" content="summary" />
             </Head>
-            <header>
-                <h1>淵野アタリのブログ</h1>
-            </header>
+            <Header />
             <main>
                 <ul>
                     {blog.map((blog: BlogResponse) => (
@@ -32,11 +32,7 @@ const Top: FC<Props> = ({ blog }) => {
                     ))}
                 </ul>
             </main>
-            <footer>
-                <p>
-                    <small>(C)2021 淵野アタリ</small>
-                </p>
-            </footer>
+            <Footer />
         </>
     );
 };
