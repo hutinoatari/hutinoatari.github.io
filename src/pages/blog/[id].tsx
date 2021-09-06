@@ -1,5 +1,7 @@
 import { FC } from "react";
 import Head from "next/head";
+import { GetStaticProps, GetStaticPaths } from "next";
+import { ParsedUrlQuery } from "node:querystring";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 import { client } from "../../libs/client";
@@ -9,6 +11,10 @@ import styles from "../../styles/blog.module.scss";
 
 interface Props {
     blog: BlogResponse;
+}
+
+interface Params extends ParsedUrlQuery {
+    id: string;
 }
 
 const Blog: FC<Props> = ({ blog }) => {
@@ -46,15 +52,17 @@ const Blog: FC<Props> = ({ blog }) => {
     );
 };
 
-export const getStaticPaths = async () => {
+export const getStaticPaths: GetStaticPaths<Params> = async () => {
     const data = await client.get<BlogListResponse>({ endpoint: "blog" });
 
     const paths = data.contents.map((content) => `/blog/${content.id}`);
     return { paths, fallback: false };
 };
 
-export const getStaticProps = async ({ params }) => {
-    const { id } = params;
+export const getStaticProps: GetStaticProps<Props, Params> = async ({
+    params,
+}) => {
+    const { id } = params ?? { id: "" };
     const data = await client.get<BlogResponse>({
         endpoint: "blog",
         contentId: id,
