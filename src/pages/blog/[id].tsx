@@ -1,8 +1,8 @@
 import { FC } from "react";
 import Head from "next/head";
+import Link from "next/link";
 import { GetStaticProps, GetStaticPaths } from "next";
 import { ParsedUrlQuery } from "node:querystring";
-import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 import { client } from "../../libs/client";
 import { dateToYYYYMMDD } from "../../utils/util";
@@ -25,9 +25,12 @@ const Blog: FC<Props> = ({ blog }) => {
                 <meta name="og:title" content={blog.title} />
                 <meta name="twitter:card" content="summary" />
             </Head>
-            <Header title={blog.title}>
+            <header>
+                <Link href="/">
+                    <a>淵野アタリのブログ</a>
+                </Link>
+                <h1>{blog.title}</h1>
                 <p>公開: {dateToYYYYMMDD(blog.publishedAt)}</p>
-                <p>更新: {dateToYYYYMMDD(blog.updatedAt)}</p>
                 <button
                     onClick={() => {
                         const baseURL = "https://twitter.com/intent/tweet";
@@ -42,7 +45,7 @@ const Blog: FC<Props> = ({ blog }) => {
                 >
                     Twitterで共有する
                 </button>
-            </Header>
+            </header>
             <main
                 dangerouslySetInnerHTML={{ __html: `${blog.body}` }}
                 className={styles.post}
