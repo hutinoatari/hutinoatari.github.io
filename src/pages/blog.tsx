@@ -4,37 +4,34 @@ import Link from "next/link";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import { client } from "../libs/client";
+import { dateToYYYYMMDD } from "../utils/util";
 import { BlogListResponse, BlogResponse } from "../types/api";
 
 interface Props {
     blog: BlogResponse[];
 }
 
-const TopPage: FC<Props> = ({ blog }) => {
+const BlogPage: FC<Props> = ({ blog }) => {
     return (
         <>
             <Head>
                 <title>淵野アタリのブログ</title>
-                <meta name="og:title" content="淵野アタリのブログ" />
+                <meta name="og:title" content="ブログ | 淵野アタリのブログ" />
                 <meta name="twitter:card" content="summary" />
             </Head>
             <Header />
             <main>
-                <h2>最新3記事</h2>
+                <h2>BLOG</h2>
                 <ul>
                     {blog.map((blog: BlogResponse) => (
                         <li key={blog.id}>
                             <Link href={`/blog/${blog.id}`}>
                                 <a>{blog.title}</a>
                             </Link>
+                            ({dateToYYYYMMDD(blog.publishedAt)})
                         </li>
                     ))}
                 </ul>
-                <p>
-                    <Link href="/blog">
-                        <a>もっと見る</a>
-                    </Link>
-                </p>
             </main>
             <Footer />
         </>
@@ -42,10 +39,7 @@ const TopPage: FC<Props> = ({ blog }) => {
 };
 
 export const getStaticProps = async () => {
-    const data = await client.get<BlogListResponse>({
-        endpoint: "blog",
-        queries: { limit: 3 },
-    });
+    const data = await client.get<BlogListResponse>({ endpoint: "blog" });
 
     return {
         props: {
@@ -54,4 +48,4 @@ export const getStaticProps = async () => {
     };
 };
 
-export default TopPage;
+export default BlogPage;
