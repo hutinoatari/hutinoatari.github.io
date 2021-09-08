@@ -4,26 +4,22 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import ExternalLink from "../components/ExternalLink";
 
-const LinkPage: FC<{}> = () => {
+const AboutPage: FC<{}> = () => {
     return (
         <>
             <Head>
-                <title>LINK | 淵野アタリのブログ</title>
-                <meta name="og:title" content="LINK | 淵野アタリのブログ" />
+                <title>ABOUT | 淵野アタリのブログ</title>
+                <meta name="og:title" content="ABOUT | 淵野アタリのブログ" />
                 <meta name="twitter:card" content="summary" />
             </Head>
             <Header />
             <main>
-                <h2>LINK</h2>
-                <ul>
-                    <li>
-                        <ExternalLink title="" url="" />
-                    </li>
-                </ul>
+                <h2>ABOUT</h2>
+                <p>淵野アタリです。</p>
             </main>
             <Footer />
         </>
     );
 };
 
-export default LinkPage;
+export default AboutPage;

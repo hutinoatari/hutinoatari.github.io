@@ -17,7 +17,7 @@ interface Params extends ParsedUrlQuery {
     id: string;
 }
 
-const Blog: FC<Props> = ({ blog }) => {
+const BlogPage: FC<Props> = ({ blog }) => {
     return (
         <>
             <Head>
@@ -78,4 +78,4 @@ export const getStaticProps: GetStaticProps<Props, Params> = async ({
     };
 };
 
-export default Blog;
+export default BlogPage;

@@ -11,7 +11,7 @@ interface Props {
     blog: BlogResponse[];
 }
 
-const Top: FC<Props> = ({ blog }) => {
+const TopPage: FC<Props> = ({ blog }) => {
     return (
         <>
             <Head>
@@ -47,4 +47,4 @@ export const getStaticProps = async () => {
     };
 };
 
-export default Top;
+export default TopPage;

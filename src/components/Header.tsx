@@ -8,6 +8,9 @@ const Header: FC<{}> = () => {
             <Link href="/">
                 <a>TOP</a>
             </Link>{" "}
+            <Link href="/about">
+                <a>ABOUT</a>
+            </Link>{" "}
             <Link href="/link">
                 <a>LINK</a>
             </Link>
