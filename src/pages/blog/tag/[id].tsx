@@ -15,7 +15,7 @@ import {
 
 interface Props {
     blog: BlogResponse[];
-    tag: BlogResponse;
+    tag: TagResponse;
 }
 
 interface Params extends ParsedUrlQuery {
