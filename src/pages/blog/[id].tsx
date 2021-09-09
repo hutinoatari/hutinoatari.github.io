@@ -1,5 +1,5 @@
 import { FC } from "react";
-import Head from "next/head";
+import PageHead from "../../components/PageHead";
 import Link from "next/link";
 import { GetStaticProps, GetStaticPaths } from "next";
 import { ParsedUrlQuery } from "node:querystring";
@@ -21,11 +21,7 @@ interface Params extends ParsedUrlQuery {
 const BlogPage: FC<Props> = ({ blog }) => {
     return (
         <>
-            <Head>
-                <title>{blog.title} | 淵野アタリのブログ</title>
-                <meta name="og:title" content={blog.title} />
-                <meta name="twitter:card" content="summary" />
-            </Head>
+            <PageHead title={blog.title} />
             <header>
                 <Link href="/">
                     <a>淵野アタリのブログ</a>

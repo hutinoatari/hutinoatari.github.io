@@ -1,5 +1,5 @@
 import { FC } from "react";
-import Head from "next/head";
+import PageHead from "../components/PageHead";
 import Link from "next/link";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
@@ -13,11 +13,7 @@ interface Props {
 const TopPage: FC<Props> = ({ blog }) => {
     return (
         <>
-            <Head>
-                <title>淵野アタリのブログ</title>
-                <meta name="og:title" content="淵野アタリのブログ" />
-                <meta name="twitter:card" content="summary" />
-            </Head>
+            <PageHead />
             <Header />
             <main>
                 <h2>最新3記事</h2>
