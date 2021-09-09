@@ -24,14 +24,14 @@ const BlogPage: FC<Props> = ({ blog }) => {
             <PageHead title={blog.title} />
             <header>
                 <Link href="/">
-                    <a>淵野アタリのブログ</a>
+                    <a>捻れたパピルス</a>
                 </Link>
                 <h1>{blog.title}</h1>
                 <p>公開: {dateToYYYYMMDD(blog.publishedAt)}</p>
                 <button
                     onClick={() => {
                         const baseURL = "https://twitter.com/intent/tweet";
-                        const text = `${blog.title} by 淵野アタリのブログ`;
+                        const text = `${blog.title} by 捻れたパピルス`;
                         const url = `hutinoatari.dev/blog/${blog.id}`;
                         const params = new URLSearchParams();
                         params.append("text", text);

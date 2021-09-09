@@ -4,7 +4,7 @@ import Link from "next/link";
 const Header: FC<{}> = () => {
     return (
         <header>
-            <h1>淵野アタリのブログ</h1>
+            <h1>捻れたパピルス</h1>
             <Link href="/">
                 <a>TOP</a>
             </Link>{" "}

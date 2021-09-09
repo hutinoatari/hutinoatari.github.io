@@ -6,7 +6,7 @@ interface Props {
 }
 
 const PageHead: FC<Props> = ({ title }) => {
-    const pageTitle = `${title ? `${title} | ` : ""}淵野アタリのブログ`;
+    const pageTitle = `${title ? `${title} | ` : ""}捻れたパピルス`;
     return (
         <Head>
             <title>{pageTitle}</title>
