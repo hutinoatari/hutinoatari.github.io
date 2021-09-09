@@ -20,7 +20,7 @@ const TopPage: FC<Props> = ({ blog }) => {
                 <ul>
                     {blog.map((blog: BlogResponse) => (
                         <li key={blog.id}>
-                            <Link href={`/blog/${blog.id}`}>
+                            <Link href={`/blog/article/${blog.id}`}>
                                 <a>{blog.title}</a>
                             </Link>
                         </li>

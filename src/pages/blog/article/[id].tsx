@@ -1,14 +1,14 @@
 import { FC } from "react";
-import PageHead from "../../components/PageHead";
+import PageHead from "../../../components/PageHead";
 import Link from "next/link";
 import { GetStaticProps, GetStaticPaths } from "next";
 import { ParsedUrlQuery } from "node:querystring";
-import Footer from "../../components/Footer";
-import ReturnPageTopButton from "../../components/ReturnPageTopButton";
-import { client } from "../../libs/client";
-import { dateToYYYYMMDD } from "../../utils/util";
-import { BlogListResponse, BlogResponse } from "../../types/api";
-import styles from "../../styles/blog.module.scss";
+import Footer from "../../../components/Footer";
+import ReturnPageTopButton from "../../../components/ReturnPageTopButton";
+import { client } from "../../../libs/client";
+import { dateToYYYYMMDD } from "../../../utils/util";
+import { BlogListResponse, BlogResponse } from "../../../types/api";
+import styles from "../../../styles/blog.module.scss";
 
 interface Props {
     blog: BlogResponse;
@@ -19,6 +19,7 @@ interface Params extends ParsedUrlQuery {
 }
 
 const BlogPage: FC<Props> = ({ blog }) => {
+    const tag = blog.tag;
     return (
         <>
             <PageHead title={blog.title} />
@@ -28,11 +29,17 @@ const BlogPage: FC<Props> = ({ blog }) => {
                 </Link>
                 <h1>{blog.title}</h1>
                 <p>公開: {dateToYYYYMMDD(blog.publishedAt)}</p>
+                <p>
+                    タグ:{" "}
+                    <Link href={`/blog/tag/${tag.id}`}>
+                        <a>{tag.name}</a>
+                    </Link>
+                </p>
                 <button
                     onClick={() => {
                         const baseURL = "https://twitter.com/intent/tweet";
                         const text = `${blog.title} by 捻れたパピルス`;
-                        const url = `hutinoatari.dev/blog/${blog.id}`;
+                        const url = `hutinoatari.dev/blog/article/${blog.id}`;
                         const params = new URLSearchParams();
                         params.append("text", text);
                         params.append("url", url);
@@ -56,7 +63,7 @@ const BlogPage: FC<Props> = ({ blog }) => {
 export const getStaticPaths: GetStaticPaths<Params> = async () => {
     const data = await client.get<BlogListResponse>({ endpoint: "blog" });
 
-    const paths = data.contents.map((content) => `/blog/${content.id}`);
+    const paths = data.contents.map((content) => `/blog/article/${content.id}`);
     return { paths, fallback: false };
 };
 

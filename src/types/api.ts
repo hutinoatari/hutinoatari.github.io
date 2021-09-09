@@ -1,6 +1,6 @@
 export type ListContentsResponse<T> = {
     contents: T[];
-    tptalCount: number;
+    totalCount: number;
     offset: number;
     limit: number;
 };
@@ -13,9 +13,16 @@ export type ContentResponse<T> = {
     revisedAt: string;
 } & T;
 
+export type TagResponse = ContentResponse<{
+    name: string;
+}>;
+
 export type BlogResponse = ContentResponse<{
     title: string;
     body: string;
+    tag: ContentResponse<TagResponse>;
 }>;
 
 export type BlogListResponse = ListContentsResponse<BlogResponse>;
+
+export type TagListResponse = ListContentsResponse<TagResponse>;
