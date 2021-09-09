@@ -4,6 +4,7 @@ import Link from "next/link";
 import { GetStaticProps, GetStaticPaths } from "next";
 import { ParsedUrlQuery } from "node:querystring";
 import Footer from "../../components/Footer";
+import ReturnPageTopButton from "../../components/ReturnPageTopButton";
 import { client } from "../../libs/client";
 import { dateToYYYYMMDD } from "../../utils/util";
 import { BlogListResponse, BlogResponse } from "../../types/api";
@@ -50,6 +51,7 @@ const BlogPage: FC<Props> = ({ blog }) => {
                 dangerouslySetInnerHTML={{ __html: `${blog.body}` }}
                 className={styles.post}
             />
+            <ReturnPageTopButton />
             <Footer />
         </>
     );
