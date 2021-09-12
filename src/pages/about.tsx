@@ -11,7 +11,33 @@ const AboutPage: FC<{}> = () => {
             <Header />
             <main>
                 <h2>ABOUT</h2>
-                <p>淵野アタリです。</p>
+                <p>靴紐を使った手芸とフロントエンド開発をやってる。</p>
+                <table>
+                    <tbody>
+                        <tr>
+                            <th>名前</th>
+                            <td>淵野アタリ</td>
+                        </tr>
+                        <tr>
+                            <th>Twitter</th>
+                            <td>
+                                <ExternalLink
+                                    title="@umaiebiten2"
+                                    url="https://twitter.com/umaiebiten2"
+                                />
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>GitHub</th>
+                            <td>
+                                <ExternalLink
+                                    title="hutinoatari"
+                                    url="https://github.com/hutinoatari"
+                                />
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
             </main>
             <Footer />
         </>

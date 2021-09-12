@@ -16,6 +16,13 @@ const TopPage: FC<Props> = ({ blog }) => {
             <PageHead />
             <Header />
             <main>
+                <h2>サイト説明</h2>
+                <p>淵野アタリの手芸サークル「捻れたバベル」のホームページ。</p>
+                <p>
+                    <Link href="/about">
+                        <a>もっと見る</a>
+                    </Link>
+                </p>
                 <h2>最新3記事</h2>
                 <ul>
                     {blog.map((blog: BlogResponse) => (
