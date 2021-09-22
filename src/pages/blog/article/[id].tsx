@@ -8,7 +8,7 @@ import ReturnPageTopButton from "../../../components/ReturnPageTopButton";
 import { client } from "../../../libs/client";
 import { dateToYYYYMMDD } from "../../../utils/util";
 import { ArticleListResponse, ArticleResponse } from "../../../types/api";
-import styles from "../../../styles/blog.module.scss";
+import styles from "../../../styles/article.module.scss";
 
 interface Props {
     article: ArticleResponse;

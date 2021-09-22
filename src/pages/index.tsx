@@ -5,6 +5,7 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import { client } from "../libs/client";
 import { ArticleListResponse, ArticleResponse } from "../types/api";
+import styles from "../styles/top.module.scss";
 
 interface Props {
     articles: ArticleResponse[];
@@ -16,6 +17,7 @@ const TopPage: FC<Props> = ({ articles }) => {
             <PageHead />
             <Header />
             <main>
+                <section className={styles.topSection}>
                 <h2>サイト説明</h2>
                 <p>淵野アタリの手芸サークル「捻れたバベル」のホームページ。</p>
                 <p>
@@ -23,6 +25,8 @@ const TopPage: FC<Props> = ({ articles }) => {
                         <a>もっと見る</a>
                     </Link>
                 </p>
+                </section>
+                <section className={styles.topSection}>
                 <h2>最新3記事</h2>
                 <ul>
                     {articles.map((article: ArticleResponse) => (
@@ -38,6 +42,7 @@ const TopPage: FC<Props> = ({ articles }) => {
                         <a>もっと見る</a>
                     </Link>
                 </p>
+                </section>
             </main>
             <Footer />
         </>
