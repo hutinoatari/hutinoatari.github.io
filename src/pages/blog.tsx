@@ -3,8 +3,8 @@ import PageHead from "../components/PageHead";
 import Link from "next/link";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import ArticleItem from "../components/ArticleItem";
 import { client } from "../libs/client";
-import { dateToYYYYMMDD } from "../utils/util";
 import {
     BlogListResponse,
     BlogResponse,
@@ -35,17 +35,16 @@ const BlogPage: FC<Props> = ({ blog, tag }) => {
                     ))}
                 </ul>
                 <h3>記事一覧</h3>
-                <ul>
-                    {blog.map((blog: BlogResponse) => (
-                        <li key={blog.id}>
-                            <Link href={`/blog/article/${blog.id}`}>
-                                <a>{blog.title}</a>
-                            </Link>
-                            [{blog.tag.name}] (
-                            {dateToYYYYMMDD(blog.publishedAt)})
-                        </li>
-                    ))}
-                </ul>
+                {blog.map((blog: BlogResponse) => (
+                    <ArticleItem
+                        key={blog.id}
+                        id={blog.id}
+                        title={blog.title}
+                        publishedAt={blog.publishedAt}
+                        tagName={blog.tag.name}
+                        tagId={blog.tag.id}
+                    />
+                ))}
             </main>
             <Footer />
         </>
