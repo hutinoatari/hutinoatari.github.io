@@ -3,7 +3,7 @@ import PageHead from "../components/PageHead";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 
-const ErrorPage: FC<{}> = () => {
+const Custom404Page: FC<{}> = () => {
     return (
         <>
             <PageHead title="NOT FOUND" />
@@ -16,4 +16,4 @@ const ErrorPage: FC<{}> = () => {
     );
 };
 
-export default ErrorPage;
+export default Custom404Page;
