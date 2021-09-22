@@ -22,7 +22,7 @@ const AboutPage: FC<{}> = () => {
                             <th>Twitter</th>
                             <td>
                                 <ExternalLink
-                                    title="hutinoatari"
+                                    title="@hutinoatari"
                                     url="https://twitter.com/hutinoatari"
                                 />
                             </td>

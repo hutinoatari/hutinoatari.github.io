@@ -17,12 +17,12 @@ export type TagResponse = ContentResponse<{
     name: string;
 }>;
 
-export type BlogResponse = ContentResponse<{
+export type ArticleResponse = ContentResponse<{
     title: string;
     body: string;
     tag: ContentResponse<TagResponse>;
 }>;
 
-export type BlogListResponse = ListContentsResponse<BlogResponse>;
+export type ArticleListResponse = ListContentsResponse<ArticleResponse>;
 
 export type TagListResponse = ListContentsResponse<TagResponse>;

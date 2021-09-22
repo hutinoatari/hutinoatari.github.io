@@ -4,13 +4,13 @@ import Link from "next/link";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import { client } from "../libs/client";
-import { BlogListResponse, BlogResponse } from "../types/api";
+import { ArticleListResponse, ArticleResponse } from "../types/api";
 
 interface Props {
-    blog: BlogResponse[];
+    articles: ArticleResponse[];
 }
 
-const TopPage: FC<Props> = ({ blog }) => {
+const TopPage: FC<Props> = ({ articles }) => {
     return (
         <>
             <PageHead />
@@ -25,10 +25,10 @@ const TopPage: FC<Props> = ({ blog }) => {
                 </p>
                 <h2>最新3記事</h2>
                 <ul>
-                    {blog.map((blog: BlogResponse) => (
-                        <li key={blog.id}>
-                            <Link href={`/blog/article/${blog.id}`}>
-                                <a>{blog.title}</a>
+                    {articles.map((article: ArticleResponse) => (
+                        <li key={article.id}>
+                            <Link href={`/blog/article/${article.id}`}>
+                                <a>{article.title}</a>
                             </Link>
                         </li>
                     ))}
@@ -45,14 +45,14 @@ const TopPage: FC<Props> = ({ blog }) => {
 };
 
 export const getStaticProps = async () => {
-    const data = await client.get<BlogListResponse>({
-        endpoint: "blog",
+    const data = await client.get<ArticleListResponse>({
+        endpoint: "articles",
         queries: { limit: 3 },
     });
 
     return {
         props: {
-            blog: data.contents,
+            articles: data.contents,
         },
     };
 };

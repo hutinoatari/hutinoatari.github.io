@@ -6,18 +6,18 @@ import Footer from "../components/Footer";
 import ArticleItem from "../components/ArticleItem";
 import { client } from "../libs/client";
 import {
-    BlogListResponse,
-    BlogResponse,
+    ArticleListResponse,
+    ArticleResponse,
     TagListResponse,
     TagResponse,
 } from "../types/api";
 
 interface Props {
-    blog: BlogResponse[];
-    tag: TagResponse[];
+    articles: ArticleResponse[];
+    tags: TagResponse[];
 }
 
-const BlogPage: FC<Props> = ({ blog, tag }) => {
+const BlogPage: FC<Props> = ({ articles, tags }) => {
     return (
         <>
             <PageHead title="BLOG" />
@@ -26,7 +26,7 @@ const BlogPage: FC<Props> = ({ blog, tag }) => {
                 <h2>BLOG</h2>
                 <h3>タグ一覧</h3>
                 <ul>
-                    {tag.map((tag: TagResponse) => (
+                    {tags.map((tag: TagResponse) => (
                         <li key={tag.id}>
                             <Link href={`/blog/tag/${tag.id}`}>
                                 <a>{tag.name}</a>
@@ -35,7 +35,7 @@ const BlogPage: FC<Props> = ({ blog, tag }) => {
                     ))}
                 </ul>
                 <h3>記事一覧</h3>
-                {blog.map((blog: BlogResponse) => (
+                {articles.map((blog: ArticleResponse) => (
                     <ArticleItem
                         key={blog.id}
                         id={blog.id}
@@ -52,12 +52,14 @@ const BlogPage: FC<Props> = ({ blog, tag }) => {
 };
 
 export const getStaticProps = async () => {
-    const blogData = await client.get<BlogListResponse>({ endpoint: "blog" });
+    const articleData = await client.get<ArticleListResponse>({
+        endpoint: "articles",
+    });
     const tagData = await client.get<TagListResponse>({ endpoint: "tags" });
     return {
         props: {
-            blog: blogData.contents,
-            tag: tagData.contents,
+            articles: articleData.contents,
+            tags: tagData.contents,
         },
     };
 };

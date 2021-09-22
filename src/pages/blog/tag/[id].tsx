@@ -7,13 +7,13 @@ import Footer from "../../../components/Footer";
 import ArticleItem from "../../../components/ArticleItem";
 import { client } from "../../../libs/client";
 import {
-    BlogListResponse,
-    BlogResponse,
+    ArticleListResponse,
+    ArticleResponse,
     TagResponse,
 } from "../../../types/api";
 
 interface Props {
-    blog: BlogResponse[];
+    articles: ArticleResponse[];
     tag: TagResponse;
 }
 
@@ -21,7 +21,7 @@ interface Params extends ParsedUrlQuery {
     id: string;
 }
 
-const TagPage: FC<Props> = ({ blog, tag }) => {
+const TagPage: FC<Props> = ({ articles, tag }) => {
     return (
         <>
             <PageHead title="BLOG" />
@@ -29,14 +29,14 @@ const TagPage: FC<Props> = ({ blog, tag }) => {
             <main>
                 <h2>BLOG</h2>
                 <h3>タグ: {tag.name}</h3>
-                {blog?.map((blog: BlogResponse) => (
+                {articles.map((article: ArticleResponse) => (
                     <ArticleItem
-                        key={blog.id}
-                        id={blog.id}
-                        title={blog.title}
-                        publishedAt={blog.publishedAt}
-                        tagName={blog.tag.name}
-                        tagId={blog.tag.id}
+                        key={article.id}
+                        id={article.id}
+                        title={article.title}
+                        publishedAt={article.publishedAt}
+                        tagName={article.tag.name}
+                        tagId={article.tag.id}
                     />
                 ))}
             </main>
@@ -46,7 +46,7 @@ const TagPage: FC<Props> = ({ blog, tag }) => {
 };
 
 export const getStaticPaths: GetStaticPaths<Params> = async () => {
-    const data = await client.get<BlogListResponse>({ endpoint: "tags" });
+    const data = await client.get<ArticleListResponse>({ endpoint: "tags" });
 
     const paths = data.contents.map((content) => `/blog/tag/${content.id}`);
     return { paths, fallback: false };
@@ -56,8 +56,8 @@ export const getStaticProps: GetStaticProps<Props, Params> = async ({
     params,
 }) => {
     const { id } = params ?? { id: "" };
-    const blogData = await client.get<BlogListResponse>({
-        endpoint: "blog",
+    const blogData = await client.get<ArticleListResponse>({
+        endpoint: "articles",
         queries: { filters: `tag[equals]${id}` },
     });
     const tagData = await client.get<TagResponse>({
@@ -67,7 +67,7 @@ export const getStaticProps: GetStaticProps<Props, Params> = async ({
 
     return {
         props: {
-            blog: blogData.contents,
+            articles: blogData.contents,
             tag: tagData,
         },
     };
