@@ -24,9 +24,9 @@ const BlogPage: FC<Props> = ({ blog }) => {
         <>
             <PageHead title={blog.title} />
             <header>
-                <Link href="/">
+                <p><Link href="/">
                     <a>捻れたパピルス</a>
-                </Link>
+                </Link></p>
                 <h1>{blog.title}</h1>
                 <p>公開: {dateToYYYYMMDD(blog.publishedAt)}</p>
                 <p>
@@ -34,6 +34,9 @@ const BlogPage: FC<Props> = ({ blog }) => {
                     <Link href={`/blog/tag/${tag.id}`}>
                         <a>{tag.name}</a>
                     </Link>
+                </p>
+                <p>
+                    <Link href="/blog"><a>記事一覧に戻る</a></Link>
                 </p>
                 <button
                     onClick={() => {
