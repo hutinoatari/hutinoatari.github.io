@@ -24,7 +24,7 @@ interface Params extends ParsedUrlQuery {
 const TagPage: FC<Props> = ({ articles, tag }) => {
     return (
         <>
-            <PageHead title="BLOG" />
+            <PageHead title={`BLOG(タグ: ${tag.name})`} />
             <Header />
             <main>
                 <h2>BLOG</h2>

@@ -18,30 +18,32 @@ const TopPage: FC<Props> = ({ articles }) => {
             <Header />
             <main>
                 <section className={styles.topSection}>
-                <h2>サイト説明</h2>
-                <p>淵野アタリの手芸サークル「捻れたバベル」のホームページ。</p>
-                <p>
-                    <Link href="/about">
-                        <a>もっと見る</a>
-                    </Link>
-                </p>
+                    <h2>サイト説明</h2>
+                    <p>
+                        淵野アタリの手芸サークル「捻れたバベル」のホームページ。
+                    </p>
+                    <p>
+                        <Link href="/about">
+                            <a>もっと見る</a>
+                        </Link>
+                    </p>
                 </section>
                 <section className={styles.topSection}>
-                <h2>最新3記事</h2>
-                <ul>
-                    {articles.map((article: ArticleResponse) => (
-                        <li key={article.id}>
-                            <Link href={`/blog/article/${article.id}`}>
-                                <a>{article.title}</a>
-                            </Link>
-                        </li>
-                    ))}
-                </ul>
-                <p>
-                    <Link href="/blog">
-                        <a>もっと見る</a>
-                    </Link>
-                </p>
+                    <h2>最新3記事</h2>
+                    <ul>
+                        {articles.map((article: ArticleResponse) => (
+                            <li key={article.id}>
+                                <Link href={`/blog/article/${article.id}`}>
+                                    <a>{article.title}</a>
+                                </Link>
+                            </li>
+                        ))}
+                    </ul>
+                    <p>
+                        <Link href="/blog">
+                            <a>もっと見る</a>
+                        </Link>
+                    </p>
                 </section>
             </main>
             <Footer />
