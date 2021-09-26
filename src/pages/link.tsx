@@ -37,6 +37,11 @@ const LinkPage: FC<{}> = () => {
                     author="B"
                 />
                 <LinkItem
+                    title="ウサギ小屋"
+                    url="https://www.kyu099.net/"
+                    author="きゅ〜"
+                />
+                <LinkItem
                     title="ねぎー日記"
                     url="https://negiissei.com/"
                     author="ねぎ一世"
