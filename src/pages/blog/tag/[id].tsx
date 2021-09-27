@@ -36,7 +36,6 @@ const TagPage: FC<Props> = ({ articles, tag }) => {
                         title={article.title}
                         publishedAt={article.publishedAt}
                         tagName={article.tag.name}
-                        tagId={article.tag.id}
                     />
                 ))}
             </main>

@@ -11,6 +11,7 @@ import {
     TagListResponse,
     TagResponse,
 } from "../types/api";
+import { dateToYYYYMMDD } from "../utils/util";
 
 interface Props {
     articles: ArticleResponse[];
@@ -35,16 +36,17 @@ const BlogPage: FC<Props> = ({ articles, tags }) => {
                     ))}
                 </ul>
                 <h3>記事一覧</h3>
-                {articles.map((blog: ArticleResponse) => (
-                    <ArticleItem
-                        key={blog.id}
-                        id={blog.id}
-                        title={blog.title}
-                        publishedAt={blog.publishedAt}
-                        tagName={blog.tag.name}
-                        tagId={blog.tag.id}
-                    />
-                ))}
+                <ul>
+                    {articles.map((article: ArticleResponse) => (
+                        <ArticleItem
+                            key={article.id}
+                            id={article.id}
+                            title={article.title}
+                            publishedAt={article.publishedAt}
+                            tagName={article.tag.name}
+                        />
+                    ))}
+                </ul>
             </main>
             <Footer />
         </>

@@ -3,7 +3,10 @@ const dateToYYYYMMDD = (dateString: string): string => {
     const y = date.getFullYear();
     const m = date.getMonth() + 1;
     const d = date.getDate();
-    const YYYYMMDD = `${y}/${m}/${d}`;
+    const YYYYMMDD = `${y}/${("" + m).padStart(2, "0")}/${("" + d).padStart(
+        2,
+        "0"
+    )}`;
     return YYYYMMDD;
 };
 
