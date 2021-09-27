@@ -3,7 +3,7 @@ import PageHead from "../components/PageHead";
 import Link from "next/link";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-import ArticleItem from "../components/ArticleItem";
+import ArticleListItem from "../components/ArticleLinkItem";
 import { client } from "../libs/client";
 import {
     ArticleListResponse,
@@ -11,7 +11,6 @@ import {
     TagListResponse,
     TagResponse,
 } from "../types/api";
-import { dateToYYYYMMDD } from "../utils/util";
 
 interface Props {
     articles: ArticleResponse[];
@@ -38,7 +37,7 @@ const BlogPage: FC<Props> = ({ articles, tags }) => {
                 <h3>記事一覧</h3>
                 <ul>
                     {articles.map((article: ArticleResponse) => (
-                        <ArticleItem
+                        <ArticleListItem
                             key={article.id}
                             id={article.id}
                             title={article.title}

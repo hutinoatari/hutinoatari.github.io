@@ -4,7 +4,7 @@ import Header from "../../../components/Header";
 import { GetStaticProps, GetStaticPaths } from "next";
 import { ParsedUrlQuery } from "node:querystring";
 import Footer from "../../../components/Footer";
-import ArticleItem from "../../../components/ArticleItem";
+import ArticleListItem from "../../../components/ArticleLinkItem";
 import { client } from "../../../libs/client";
 import {
     ArticleListResponse,
@@ -29,15 +29,17 @@ const TagPage: FC<Props> = ({ articles, tag }) => {
             <main>
                 <h2>BLOG</h2>
                 <h3>タグ: {tag.name}</h3>
-                {articles.map((article: ArticleResponse) => (
-                    <ArticleItem
-                        key={article.id}
-                        id={article.id}
-                        title={article.title}
-                        publishedAt={article.publishedAt}
-                        tagName={article.tag.name}
-                    />
-                ))}
+                <ul>
+                    {articles.map((article: ArticleResponse) => (
+                        <ArticleListItem
+                            key={article.id}
+                            id={article.id}
+                            title={article.title}
+                            publishedAt={article.publishedAt}
+                            tagName={article.tag.name}
+                        />
+                    ))}
+                </ul>
             </main>
             <Footer />
         </>
