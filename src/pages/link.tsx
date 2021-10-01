@@ -32,7 +32,10 @@ const LinkPage: FC<Props> = ({ links }) => {
 };
 
 export const getStaticProps = async () => {
-    const data = await client.get<LinkListResponse>({ endpoint: "links" });
+    const data = await client.get<LinkListResponse>({
+        endpoint: "links",
+        queries: { limit: 256 },
+    });
     return {
         props: {
             links: data.contents,
