@@ -23,6 +23,14 @@ export type ArticleResponse = ContentResponse<{
     tag: ContentResponse<TagResponse>;
 }>;
 
+export type LinkResponse = ContentResponse<{
+    title: string;
+    url: string;
+    author: string;
+}>;
+
 export type ArticleListResponse = ListContentsResponse<ArticleResponse>;
 
 export type TagListResponse = ListContentsResponse<TagResponse>;
+
+export type LinkListResponse = ListContentsResponse<LinkResponse>;
