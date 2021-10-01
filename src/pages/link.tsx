@@ -23,6 +23,7 @@ const LinkPage: FC<Props> = ({ links }) => {
                             title={link.title}
                             url={link.url}
                             author={link.author}
+                            key={link.id}
                         />
                     ))}
                 </ul>

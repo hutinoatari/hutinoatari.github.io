@@ -11,6 +11,9 @@ const Header: FC<{}> = () => {
             <Link href="/about">
                 <a>ABOUT</a>
             </Link>{" "}
+            <Link href="/gallery">
+                <a>GALLERY</a>
+            </Link>{" "}
             <Link href="/blog">
                 <a>BLOG</a>
             </Link>{" "}

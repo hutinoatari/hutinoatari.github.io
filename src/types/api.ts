@@ -29,8 +29,20 @@ export type LinkResponse = ContentResponse<{
     author: string;
 }>;
 
+export type WorkResponse = ContentResponse<{
+    name: string;
+    image: {
+        url: string;
+        width: number;
+        height: number;
+    };
+    caption: string;
+}>;
+
 export type ArticleListResponse = ListContentsResponse<ArticleResponse>;
 
 export type TagListResponse = ListContentsResponse<TagResponse>;
 
 export type LinkListResponse = ListContentsResponse<LinkResponse>;
+
+export type WorkListResponse = ListContentsResponse<WorkResponse>;
