@@ -18,7 +18,7 @@ const TopPage: FC<Props> = ({ works }) => {
 
             <section className={styles.topSection}>
                 <h2>サイト説明</h2>
-                <p>淵野アタリの手芸サークル「捻れたバベル」のホームページ。</p>
+                <p>淵野アタリの手芸サークル「捻れたバベル」のポートフォリオサイト。</p>
                 <p>
                     <Link href="/about">
                         <a>もっと見る</a>

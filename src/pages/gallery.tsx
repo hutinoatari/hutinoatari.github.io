@@ -13,7 +13,7 @@ const GalleryPage: FC<Props> = ({ works }) => {
         <>
             <PageHead title="GALLERY" />
 
-            <h2>LINK</h2>
+            <h2>GALLERY</h2>
             <ul>
                 {works.map((work: WorkResponse) => (
                     <li key={work.id}>
