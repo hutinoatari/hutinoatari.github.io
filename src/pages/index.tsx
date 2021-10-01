@@ -15,38 +15,34 @@ const TopPage: FC<Props> = ({ works }) => {
     return (
         <>
             <PageHead />
-            <Header />
-            <main>
-                <section className={styles.topSection}>
-                    <h2>サイト説明</h2>
-                    <p>
-                        淵野アタリの手芸サークル「捻れたバベル」のホームページ。
-                    </p>
-                    <p>
-                        <Link href="/about">
-                            <a>もっと見る</a>
-                        </Link>
-                    </p>
-                </section>
-                <section className={styles.topSection}>
-                    <h2>最新3作品</h2>
-                    <ul>
-                        {works.map((work: WorkResponse) => (
-                            <li key={work.id}>
-                                <Link href={`/gallery/${work.id}`}>
-                                    <a>{work.name}</a>
-                                </Link>
-                            </li>
-                        ))}
-                    </ul>
-                    <p>
-                        <Link href="/gallery">
-                            <a>もっと見る</a>
-                        </Link>
-                    </p>
-                </section>
-            </main>
-            <Footer />
+
+            <section className={styles.topSection}>
+                <h2>サイト説明</h2>
+                <p>淵野アタリの手芸サークル「捻れたバベル」のホームページ。</p>
+                <p>
+                    <Link href="/about">
+                        <a>もっと見る</a>
+                    </Link>
+                </p>
+            </section>
+            
+            <section className={styles.topSection}>
+                <h2>最新3作品</h2>
+                <ul>
+                    {works.map((work: WorkResponse) => (
+                        <li key={work.id}>
+                            <Link href={`/gallery/${work.id}`}>
+                                <a>{work.name}</a>
+                            </Link>
+                        </li>
+                    ))}
+                </ul>
+                <p>
+                    <Link href="/gallery">
+                        <a>もっと見る</a>
+                    </Link>
+                </p>
+            </section>
         </>
     );
 };

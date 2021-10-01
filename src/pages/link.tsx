@@ -14,19 +14,16 @@ const LinkPage: FC<Props> = ({ links }) => {
     return (
         <>
             <PageHead title="LINK" />
-            <Header />
-            <main>
-                <h2>LINK</h2>
-                <ul>
-                    {links.map((link: LinkResponse) => (
-                        <li key={link.id}>
-                            <ExternalLink title={link.title} url={link.url} />(
-                            {link.author})
-                        </li>
-                    ))}
-                </ul>
-            </main>
-            <Footer />
+            
+            <h2>LINK</h2>
+            <ul>
+                {links.map((link: LinkResponse) => (
+                    <li key={link.id}>
+                        <ExternalLink title={link.title} url={link.url} />(
+                        {link.author})
+                    </li>
+                ))}
+            </ul>
         </>
     );
 };

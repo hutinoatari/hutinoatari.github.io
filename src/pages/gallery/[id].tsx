@@ -1,9 +1,7 @@
 import { FC } from "react";
 import PageHead from "../../components/PageHead";
-import Header from "../../components/Header";
 import { GetStaticProps, GetStaticPaths } from "next";
 import { ParsedUrlQuery } from "node:querystring";
-import Footer from "../../components/Footer";
 import { client } from "../../libs/client";
 import { WorkListResponse, WorkResponse } from "../../types/api";
 
@@ -19,17 +17,12 @@ const WorkPage: FC<Props> = ({ work }) => {
     return (
         <>
             <PageHead title={work.name} />
-            <Header />
-
-            <main>
-                <div>
-                    <img src={work.image.url} alt="" />
-                </div>
-                <h2>{work.name}</h2>
-                <p>{work.caption}</p>
-            </main>
-
-            <Footer />
+            
+            <div>
+                <img src={work.image.url} alt="" />
+            </div>
+            <h2>{work.name}</h2>
+            <p>{work.caption}</p>
         </>
     );
 };
