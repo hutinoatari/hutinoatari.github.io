@@ -14,7 +14,7 @@ const PageHead: FC<Props> = ({ title }) => {
             <meta name="viewport" content="width=device-width" />
             <meta
                 name="description"
-                content="淵野アタリの手芸サークル「捻れたバベル」の技術ブログです。靴紐やプログラミングの記事を公開しています。"
+                content="淵野アタリのポートフォリオサイトです。靴紐やプログラミングの作品を公開しています。"
             />
             <meta name="author" content="淵野アタリ" />
             <meta name="og:title" content={pageTitle} />

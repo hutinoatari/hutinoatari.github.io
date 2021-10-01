@@ -12,7 +12,7 @@ const GalleryPage: FC<Props> = ({ works }) => {
     return (
         <>
             <PageHead title="GALLERY" />
-            
+
             <h2>LINK</h2>
             <ul>
                 {works.map((work: WorkResponse) => (
@@ -28,7 +28,10 @@ const GalleryPage: FC<Props> = ({ works }) => {
 };
 
 export const getStaticProps = async () => {
-    const data = await client.get<WorkListResponse>({ endpoint: "works" });
+    const data = await client.get<WorkListResponse>({
+        endpoint: "works",
+        queries: { limit: 1024 },
+    });
     return {
         props: {
             works: data.contents,

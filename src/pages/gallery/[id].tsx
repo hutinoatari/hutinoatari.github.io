@@ -17,7 +17,7 @@ const WorkPage: FC<Props> = ({ work }) => {
     return (
         <>
             <PageHead title={work.name} />
-            
+
             <div>
                 <img src={work.image.url} alt="" />
             </div>

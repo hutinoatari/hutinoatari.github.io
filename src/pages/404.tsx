@@ -5,7 +5,7 @@ const Custom404Page: FC<{}> = () => {
     return (
         <>
             <PageHead title="NOT FOUND" />
-            
+
             <p>存在しないページです。</p>
         </>
     );

@@ -25,7 +25,7 @@ const TopPage: FC<Props> = ({ works }) => {
                     </Link>
                 </p>
             </section>
-            
+
             <section className={styles.topSection}>
                 <h2>最新3作品</h2>
                 <ul>

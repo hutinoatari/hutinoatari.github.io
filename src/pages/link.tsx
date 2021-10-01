@@ -14,7 +14,7 @@ const LinkPage: FC<Props> = ({ links }) => {
     return (
         <>
             <PageHead title="LINK" />
-            
+
             <h2>LINK</h2>
             <ul>
                 {links.map((link: LinkResponse) => (

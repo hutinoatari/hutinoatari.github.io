@@ -9,12 +9,16 @@ const AboutPage: FC<{}> = () => {
 
             <h2>ABOUT</h2>
             <p>靴紐を使った手芸とフロントエンド開発をやってる。</p>
-            
+
             <table>
                 <tbody>
                     <tr>
                         <th>名前</th>
                         <td>淵野アタリ</td>
+                    </tr>
+                    <tr>
+                        <th>サークル</th>
+                        <td>捻れたバベル</td>
                     </tr>
                     <tr>
                         <th>Twitter</th>
