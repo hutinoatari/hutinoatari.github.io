@@ -4,14 +4,14 @@ import Link from "next/link";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import { client } from "../libs/client";
-import { ArticleListResponse, ArticleResponse } from "../types/api";
+import { WorkListResponse, WorkResponse } from "../types/api";
 import styles from "../styles/top.module.scss";
 
 interface Props {
-    articles: ArticleResponse[];
+    works: WorkResponse[];
 }
 
-const TopPage: FC<Props> = ({ articles }) => {
+const TopPage: FC<Props> = ({ works }) => {
     return (
         <>
             <PageHead />
@@ -29,18 +29,18 @@ const TopPage: FC<Props> = ({ articles }) => {
                     </p>
                 </section>
                 <section className={styles.topSection}>
-                    <h2>最新3記事</h2>
+                    <h2>最新3作品</h2>
                     <ul>
-                        {articles.map((article: ArticleResponse) => (
-                            <li key={article.id}>
-                                <Link href={`/blog/article/${article.id}`}>
-                                    <a>{article.title}</a>
+                        {works.map((work: WorkResponse) => (
+                            <li key={work.id}>
+                                <Link href={`/gallery/${work.id}`}>
+                                    <a>{work.name}</a>
                                 </Link>
                             </li>
                         ))}
                     </ul>
                     <p>
-                        <Link href="/blog">
+                        <Link href="/gallery">
                             <a>もっと見る</a>
                         </Link>
                     </p>
@@ -52,14 +52,14 @@ const TopPage: FC<Props> = ({ articles }) => {
 };
 
 export const getStaticProps = async () => {
-    const data = await client.get<ArticleListResponse>({
-        endpoint: "articles",
+    const data = await client.get<WorkListResponse>({
+        endpoint: "works",
         queries: { limit: 3 },
     });
 
     return {
         props: {
-            articles: data.contents,
+            works: data.contents,
         },
     };
 };

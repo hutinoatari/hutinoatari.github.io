@@ -2,7 +2,7 @@ import { FC } from "react";
 import PageHead from "../components/PageHead";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-import LinkListItem from "../components/LinkListItem";
+import ExternalLink from "../components/ExternalLink";
 import { client } from "../libs/client";
 import { LinkListResponse, LinkResponse } from "../types/api";
 
@@ -19,12 +19,10 @@ const LinkPage: FC<Props> = ({ links }) => {
                 <h2>LINK</h2>
                 <ul>
                     {links.map((link: LinkResponse) => (
-                        <LinkListItem
-                            title={link.title}
-                            url={link.url}
-                            author={link.author}
-                            key={link.id}
-                        />
+                        <li key={link.id}>
+                            <ExternalLink title={link.title} url={link.url} />(
+                            {link.author})
+                        </li>
                     ))}
                 </ul>
             </main>

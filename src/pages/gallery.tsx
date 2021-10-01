@@ -3,7 +3,6 @@ import Link from "next/link";
 import PageHead from "../components/PageHead";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-import LinkListItem from "../components/LinkListItem";
 import { client } from "../libs/client";
 import { WorkListResponse, WorkResponse } from "../types/api";
 
