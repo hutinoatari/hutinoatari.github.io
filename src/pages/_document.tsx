@@ -9,7 +9,7 @@ class MyDocument extends Document {
                 <Head />
                 <body>
                     <Header />
-                    <main>
+                    <main style={{ maxWidth: "1080px", margin: "0 auto" }}>
                         <Main />
                     </main>
                     <Footer />
