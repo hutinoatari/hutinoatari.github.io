@@ -1,5 +1,5 @@
 import { FC } from "react";
-import PageHead from "../../components/PageHead";
+import Head from "next/head";
 import { GetStaticProps, GetStaticPaths } from "next";
 import { ParsedUrlQuery } from "node:querystring";
 import { client } from "../../libs/client";
@@ -16,12 +16,27 @@ interface Params extends ParsedUrlQuery {
 const WorkPage: FC<Props> = ({ work }) => {
     return (
         <>
-            <PageHead title={work.name} />
+            <Head>
+                <title>{`${work.name} | 捻れたバベル`}</title>
+                <meta charSet="UTF-8" />
+                <meta name="viewport" content="width=device-width" />
+                <meta
+                    name="description"
+                    content="淵野アタリのポートフォリオサイトです。手芸やプログラミングの作品を公開しています。"
+                />
+                <meta name="author" content="淵野アタリ" />
+                <meta name="og:title" content={`${work.name} | 捻れたバベル`} />
+                <meta name="og:site_name" content="捻れたバベル" />
+                <meta name="og:description" content={work.caption} />
+                <meta name="og:image" content={work.image.url} />
+                <meta name="twitter:card" content="summary_large_image" />
+                <meta name="twitter:site" content="@hutinoatari" />
+            </Head>
 
-            <div>
-                <img src={work.image.url} alt="" />
-            </div>
             <h2>{work.name}</h2>
+            <div>
+                <img src={work.image.url} alt={`${work.name}の画像`} />
+            </div>
             <p>{work.caption}</p>
         </>
     );
