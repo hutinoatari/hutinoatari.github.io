@@ -1,7 +1,5 @@
 import { FC } from "react";
 import PageHead from "../components/PageHead";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
 import ExternalLink from "../components/ExternalLink";
 import { client } from "../libs/client";
 import { LinkListResponse, LinkResponse } from "../types/api";

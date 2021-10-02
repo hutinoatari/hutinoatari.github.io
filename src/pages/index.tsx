@@ -1,11 +1,8 @@
 import { FC } from "react";
 import PageHead from "../components/PageHead";
 import Link from "next/link";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
 import { client } from "../libs/client";
 import { WorkListResponse, WorkResponse } from "../types/api";
-import styles from "../styles/top.module.scss";
 
 interface Props {
     works: WorkResponse[];
@@ -16,9 +13,9 @@ const TopPage: FC<Props> = ({ works }) => {
         <>
             <PageHead />
 
-            <section className={styles.topSection}>
+            <section>
                 <h2>サイト説明</h2>
-                <p>淵野アタリの手芸サークル「捻れたバベル」のポートフォリオサイト。</p>
+                <p>淵野アタリのポートフォリオサイト。</p>
                 <p>
                     <Link href="/about">
                         <a>もっと見る</a>
@@ -26,7 +23,7 @@ const TopPage: FC<Props> = ({ works }) => {
                 </p>
             </section>
 
-            <section className={styles.topSection}>
+            <section>
                 <h2>最新3作品</h2>
                 <ul>
                     {works.map((work: WorkResponse) => (
