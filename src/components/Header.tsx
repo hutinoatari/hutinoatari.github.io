@@ -1,5 +1,6 @@
 import { FC } from "react";
 import Link from "next/link";
+import ExternalLink from "./ExternalLink";
 
 const Header: FC<{}> = () => {
     return (
@@ -15,6 +16,10 @@ const Header: FC<{}> = () => {
                 <Link href="/gallery">
                     <a>GALLERY</a>
                 </Link>{" "}
+                <ExternalLink
+                    title="BLOG"
+                    url="https://hutinoatari.github.io/"
+                />{" "}
                 <Link href="/link">
                     <a>LINK</a>
                 </Link>
