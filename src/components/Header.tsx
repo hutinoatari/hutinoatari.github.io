@@ -1,12 +1,13 @@
 import { FC } from "react";
 import Link from "next/link";
 import ExternalLink from "./ExternalLink";
+import styles from "../styles/style.module.scss";
 
 const Header: FC<{}> = () => {
     return (
         <header>
-            <h1 style={{ textAlign: "center" }}>捻れたバベル</h1>
-            <nav style={{ textAlign: "center" }}>
+            <h1 className={styles.center}>捻れたバベル</h1>
+            <nav className={styles.center}>
                 <Link href="/">
                     <a>TOP</a>
                 </Link>{" "}
