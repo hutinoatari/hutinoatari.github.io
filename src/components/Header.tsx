@@ -1,7 +1,7 @@
 import { FC } from "react";
 import Link from "next/link";
 import ExternalLink from "./ExternalLink";
-import styles from "../styles/style.module.scss";
+import styles from "../styles/Layout.module.scss";
 
 const Header: FC<{}> = () => {
     return (
