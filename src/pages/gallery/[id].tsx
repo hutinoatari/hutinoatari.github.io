@@ -14,7 +14,7 @@ interface Params extends ParsedUrlQuery {
 }
 
 const WorkPage: FC<Props> = ({ work }) => {
-    const descriptionHtml = work.caption.replaceAll("\n", "<br>");
+    const descriptionHtml = work.caption.replace(/\n/g, "<br>");
     return (
         <>
             <Head>
