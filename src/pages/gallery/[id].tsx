@@ -14,7 +14,7 @@ interface Params extends ParsedUrlQuery {
 }
 
 const WorkPage: FC<Props> = ({ work }) => {
-    console.log(work);
+    const descriptionHtml = work.caption.replaceAll("\n", "<br>");
     return (
         <>
             <Head>
@@ -40,7 +40,7 @@ const WorkPage: FC<Props> = ({ work }) => {
             </div>
             <p
                 dangerouslySetInnerHTML={{
-                    __html: work.caption.replaceAll("\n", "<br>"),
+                    __html: descriptionHtml,
                 }}
             />
         </>
