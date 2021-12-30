@@ -14,6 +14,7 @@ interface Params extends ParsedUrlQuery {
 }
 
 const WorkPage: FC<Props> = ({ work }) => {
+    console.log(work);
     return (
         <>
             <Head>
@@ -37,7 +38,11 @@ const WorkPage: FC<Props> = ({ work }) => {
             <div>
                 <img src={work.image.url} alt={`${work.name}の画像`} />
             </div>
-            <p>{work.caption}</p>
+            <p
+                dangerouslySetInnerHTML={{
+                    __html: work.caption.replaceAll("\n", "<br>"),
+                }}
+            />
         </>
     );
 };
