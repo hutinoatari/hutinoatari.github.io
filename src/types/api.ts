@@ -13,12 +13,6 @@ export type ContentResponse<T> = {
     revisedAt: string;
 } & T;
 
-export type LinkResponse = ContentResponse<{
-    title: string;
-    url: string;
-    author: string;
-}>;
-
 export type WorkResponse = ContentResponse<{
     name: string;
     image: {
@@ -28,7 +22,5 @@ export type WorkResponse = ContentResponse<{
     };
     caption: string;
 }>;
-
-export type LinkListResponse = ListContentsResponse<LinkResponse>;
 
 export type WorkListResponse = ListContentsResponse<WorkResponse>;
