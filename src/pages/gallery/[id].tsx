@@ -1,5 +1,6 @@
 import { FC } from "react";
 import Head from "next/head";
+import Image from "next/image";
 import { GetStaticProps, GetStaticPaths } from "next";
 import { ParsedUrlQuery } from "node:querystring";
 import { client } from "../../libs/client";
@@ -36,7 +37,12 @@ const WorkPage: FC<Props> = ({ work }) => {
 
             <h2>{work.name}</h2>
             <div>
-                <img src={work.image.url} alt={`${work.name}の画像`} />
+                <Image
+                    alt={`${work.name}の画像`}
+                    src={work.image.url}
+                    width={640}
+                    height={480}
+                />
             </div>
             <p
                 dangerouslySetInnerHTML={{
