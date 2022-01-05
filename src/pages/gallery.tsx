@@ -20,6 +20,7 @@ const GalleryPage: FC<Props> = ({ works }) => {
                     <div key={work.id} style={{ width: "33%" }}>
                         <Link href={`/gallery/${work.id}`}>
                             <Image
+                                alt={work.name}
                                 src={work.image.url}
                                 width={640}
                                 height={480}
