@@ -19,6 +19,7 @@
     "esModuleInterop": true,
     "resolveJsonModule": true,
     "isolatedModules": true,
+    "incremental": true
   },
   "include": [
     "next-env.d.ts",

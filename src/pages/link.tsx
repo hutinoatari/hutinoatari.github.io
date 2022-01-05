@@ -72,6 +72,11 @@ export const getStaticProps = async () => {
             author: "おひげ先輩",
         },
         {
+            title: "るーどっとでぶ",
+            url: "https://ruuu.dev/",
+            author: "るー先輩",
+        },
+        {
             title: "ごっち",
             url: "https://gotti.dev/",
             author: "gottiくん",
