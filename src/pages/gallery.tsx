@@ -1,5 +1,6 @@
 import { FC } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import PageHead from "../components/PageHead";
 import { client } from "../libs/client";
 import { WorkListResponse, WorkResponse } from "../types/api";
@@ -14,15 +15,20 @@ const GalleryPage: FC<Props> = ({ works }) => {
             <PageHead title="GALLERY" />
 
             <h2>GALLERY</h2>
-            <ul>
+            <div style={{ display: "flex" }}>
                 {works.map((work: WorkResponse) => (
-                    <li key={work.id}>
+                    <div key={work.id} style={{ width: "33%" }}>
                         <Link href={`/gallery/${work.id}`}>
-                            <a>{work.name}</a>
+                            <Image
+                                src={work.image.url}
+                                width={640}
+                                height={480}
+                                layout="responsive"
+                            />
                         </Link>
-                    </li>
+                    </div>
                 ))}
-            </ul>
+            </div>
         </>
     );
 };
