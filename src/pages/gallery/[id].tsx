@@ -4,6 +4,7 @@ import Image from "next/image";
 import { GetStaticProps, GetStaticPaths } from "next";
 import { ParsedUrlQuery } from "node:querystring";
 import { client } from "../../libs/client";
+import { mdToHtml } from "../../libs/cheeseTownForBlog";
 import { WorkListResponse, WorkResponse } from "../../types/api";
 
 interface Props {
@@ -15,7 +16,6 @@ interface Params extends ParsedUrlQuery {
 }
 
 const WorkPage: FC<Props> = ({ work }) => {
-    const descriptionHtml = work.caption.replace(/\n/g, "<br>");
     return (
         <>
             <Head>
@@ -29,7 +29,7 @@ const WorkPage: FC<Props> = ({ work }) => {
                 <meta name="author" content="淵野アタリ" />
                 <meta name="og:title" content={`${work.name} | 捻れたバベル`} />
                 <meta name="og:site_name" content="捻れたバベル" />
-                <meta name="og:description" content={work.caption} />
+                <meta name="og:description" content={`作品「${work.name}」`} />
                 <meta name="og:image" content={work.image.url} />
                 <meta name="twitter:card" content="summary_large_image" />
                 <meta name="twitter:site" content="@hutinoatari" />
@@ -46,7 +46,7 @@ const WorkPage: FC<Props> = ({ work }) => {
             </div>
             <p
                 dangerouslySetInnerHTML={{
-                    __html: descriptionHtml,
+                    __html: mdToHtml(work.caption),
                 }}
             />
         </>
