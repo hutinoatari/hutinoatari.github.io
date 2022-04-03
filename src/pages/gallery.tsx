@@ -15,7 +15,7 @@ const GalleryPage: FC<Props> = ({ works }) => {
             <PageHead title="GALLERY" />
 
             <h2>GALLERY</h2>
-            <div style={{ display: "flex" }}>
+            <div style={{ display: "flex", flexWrap: "wrap" }}>
                 {works.map((work: WorkResponse) => (
                     <div key={work.id} style={{ width: "33%" }}>
                         <Link href={`/gallery/${work.id}`}>
