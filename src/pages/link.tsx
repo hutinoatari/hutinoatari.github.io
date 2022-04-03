@@ -62,6 +62,11 @@ export const getStaticProps = async () => {
             author: "きゅ〜",
         },
         {
+            title: "Lunatic電通生もっちゃんの部屋",
+            url: "https://mocchan.dev/",
+            author: "もっちゃん",
+        },
+        {
             title: "ねぎー日記",
             url: "https://negiissei.com/",
             author: "ねぎ一世",
