@@ -4,7 +4,7 @@ import Image from "next/image";
 import { GetStaticProps, GetStaticPaths } from "next";
 import { ParsedUrlQuery } from "node:querystring";
 import { client } from "../../libs/client";
-import { mdToHtml } from "../../libs/cheeseTownForBlog";
+import { cheeseTownToHtml } from "../../libs/cheeseTownForBlog";
 import { WorkListResponse, WorkResponse } from "../../types/api";
 
 interface Props {
@@ -44,9 +44,9 @@ const WorkPage: FC<Props> = ({ work }) => {
                     height={480}
                 />
             </div>
-            <p
+            <div
                 dangerouslySetInnerHTML={{
-                    __html: mdToHtml(work.caption),
+                    __html: cheeseTownToHtml(work.caption),
                 }}
             />
         </>

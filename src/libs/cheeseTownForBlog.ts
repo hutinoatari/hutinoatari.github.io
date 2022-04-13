@@ -1,18 +1,41 @@
-const regex = /^\[section\] (.+)/;
+interface Syntax {
+    regex: RegExp;
+    generate(...args: string[]): string;
+}
 
-const mdToHtml = (markdown: string): string => {
-    const escapedAnglebracketsMarkdown: string = markdown.replace(
-        /[<>]/g,
-        (c) => (c === "<" ? "&lt;" : "&gt;")
-    );
-    const lines: string[] = escapedAnglebracketsMarkdown.split("\n");
-    const elements: string[] = lines.map((line) => {
-        const match = line.match(regex);
-        if(match) return `<h3>${match[1]}</h3>`;
-        return `<p>${line}</p>`;
-    });
-    const html = elements.join("");
+const parser: Syntax[] = [
+    {
+        regex: /^\[section\] (.+)/,
+        generate: (_, word) => {
+            return `<h3>${word.trim()}</h3>`;
+        },
+    },
+    {
+        regex: /^\[list\] (.+)/,
+        generate: (_, text) => {
+            const items = text.split("|");
+            return `<ul>${items
+                .map((item) => `<li>${item.trim()}</li>`)
+                .join("")}</ul>`;
+        },
+    },
+];
+
+const cheeseTownToHtml = (markup: string): string => {
+    const tokens = markup
+        .replace(/[<>]/g, (c) => (c === "<" ? "&lt;" : "&gt;"))
+        .split("\n")
+        .filter((e) => e !== "");
+    const html = tokens
+        .map((token) => {
+            for (const syntax of parser) {
+                const match = token.match(syntax.regex);
+                if (match !== null) return syntax.generate(...match);
+            }
+            return `<p>${token.trim()}</p>`;
+        })
+        .join("");
     return html;
 };
 
-export { mdToHtml };
+export { cheeseTownToHtml };
