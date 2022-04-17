@@ -20,6 +20,7 @@ export type WorkResponse = ContentResponse<{
         width: number;
         height: number;
     };
+    description: string;
     caption: string;
 }>;
 

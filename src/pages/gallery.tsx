@@ -19,6 +19,7 @@ const GalleryPage: FC<Props> = ({ works }) => {
             <div className={styles.container}>
                 {works.map((work: WorkResponse) => (
                     <div key={work.id} className={styles.item}>
+                        <div>
                         <Link href={`/gallery/${work.id}`}>
                             <Image
                                 alt={work.name}
@@ -28,6 +29,11 @@ const GalleryPage: FC<Props> = ({ works }) => {
                                 layout="responsive"
                             />
                         </Link>
+                        </div>
+                        <div>
+                            <h3>{work.name}</h3>
+                            <p>{work.description}</p>
+                        </div>
                     </div>
                 ))}
             </div>

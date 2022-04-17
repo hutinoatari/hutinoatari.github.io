@@ -29,7 +29,7 @@ const WorkPage: FC<Props> = ({ work }) => {
                 <meta name="author" content="淵野アタリ" />
                 <meta name="og:title" content={`${work.name} | 捻れたバベル`} />
                 <meta name="og:site_name" content="捻れたバベル" />
-                <meta name="og:description" content={`作品「${work.name}」`} />
+                <meta name="og:description" content={work.description} />
                 <meta name="og:image" content={work.image.url} />
                 <meta name="twitter:card" content="summary_large_image" />
                 <meta name="twitter:site" content="@hutinoatari" />

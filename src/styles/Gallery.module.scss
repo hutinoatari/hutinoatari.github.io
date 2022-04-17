@@ -4,6 +4,9 @@
 }
 
 .item {
+    margin-bottom: 1em;
+    border: solid black 1px;
+    box-sizing: border-box;
     width: calc(100% / 3);
     @media (max-width: 600px) {
         width: 100%;
