@@ -1,0 +1,13 @@
+.container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.item {
+    @media (min-width: 1280px) {
+        width: calc(100% / 3);
+    }
+    @media (max-width: 1281px) {
+        width: 100%;
+    }
+}

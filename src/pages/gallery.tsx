@@ -4,6 +4,7 @@ import Image from "next/image";
 import PageHead from "../components/PageHead";
 import { client } from "../libs/client";
 import { WorkListResponse, WorkResponse } from "../types/api";
+import styles from "../styles/Gallery.module.scss";
 
 interface Props {
     works: WorkResponse[];
@@ -15,9 +16,9 @@ const GalleryPage: FC<Props> = ({ works }) => {
             <PageHead title="GALLERY" />
 
             <h2>GALLERY</h2>
-            <div style={{ display: "flex", flexWrap: "wrap" }}>
+            <div className={styles.container}>
                 {works.map((work: WorkResponse) => (
-                    <div key={work.id} style={{ width: "33%" }}>
+                    <div key={work.id} className={styles.item}>
                         <Link href={`/gallery/${work.id}`}>
                             <Image
                                 alt={work.name}
