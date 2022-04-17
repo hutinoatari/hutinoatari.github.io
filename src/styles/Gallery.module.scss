@@ -4,10 +4,8 @@
 }
 
 .item {
-    @media (min-width: 1280px) {
-        width: calc(100% / 3);
-    }
-    @media (max-width: 1281px) {
+    width: calc(100% / 3);
+    @media (max-width: 600px) {
         width: 100%;
     }
 }
