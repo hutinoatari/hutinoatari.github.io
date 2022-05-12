@@ -7,18 +7,28 @@ const Header: FC<{}> = () => {
         <header>
             <h1 className={styles.center}>捻れたバベル</h1>
             <nav className={styles.center}>
-                <Link href="/">
-                    <a>TOP</a>
-                </Link>{" "}
-                <Link href="/about">
-                    <a>ABOUT</a>
-                </Link>{" "}
-                <Link href="/gallery">
-                    <a>GALLERY</a>
-                </Link>{" "}
-                <Link href="/link">
-                    <a>LINK</a>
-                </Link>
+                <ul className={styles.list}>
+                    <li>
+                        <Link href="/">
+                            <a>TOP</a>
+                        </Link>
+                    </li>
+                    <li>
+                        <Link href="/about">
+                            <a>ABOUT</a>
+                        </Link>
+                    </li>
+                    <li>
+                        <Link href="/gallery">
+                            <a>GALLERY</a>
+                        </Link>
+                    </li>
+                    <li>
+                        <Link href="/link">
+                            <a>LINK</a>
+                        </Link>
+                    </li>
+                </ul>
             </nav>
         </header>
     );

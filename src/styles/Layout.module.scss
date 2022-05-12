@@ -6,3 +6,12 @@
 .center {
     text-align: center;
 }
+
+.list {
+    list-style: none;
+    padding-inline-start: 0;
+    & li {
+        display: inline;
+        margin: auto 0.5rem;
+    }
+}
