@@ -1,7 +1,6 @@
 import { FC } from "react";
-import Link from "next/link";
-import Image from "next/image";
 import PageHead from "../components/PageHead";
+import GalleryPost from "../components/GalleryPost";
 import { client } from "../libs/client";
 import { WorkListResponse, WorkResponse } from "../types/api";
 import styles from "../styles/Gallery.module.scss";
@@ -18,23 +17,7 @@ const GalleryPage: FC<Props> = ({ works }) => {
             <h2>GALLERY</h2>
             <div className={styles.container}>
                 {works.map((work: WorkResponse) => (
-                    <div key={work.id} className={styles.item}>
-                        <div>
-                        <Link href={`/gallery/${work.id}`}>
-                            <Image
-                                alt={work.name}
-                                src={work.image.url}
-                                width={640}
-                                height={480}
-                                layout="responsive"
-                            />
-                        </Link>
-                        </div>
-                        <div>
-                            <h3>{work.name}</h3>
-                            <p>{work.description}</p>
-                        </div>
-                    </div>
+                    <GalleryPost key={work.id} work={work} />
                 ))}
             </div>
         </>
