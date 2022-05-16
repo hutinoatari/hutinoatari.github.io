@@ -3,7 +3,8 @@ import Link from "../fibers/Link.ts";
 
 const TopPage: Fabric = async () => {
     return {
-        head: `<title>捻れたバベル</title><meta charset="UTF-8"><meta name="viewport" content="width=device-width"><link rel="stylesheet" href="./style.css">`,
+        head:
+            `<title>捻れたバベル</title><meta charset="UTF-8"><meta name="viewport" content="width=device-width"><link rel="stylesheet" href="./style.css">`,
         body: `<header><h1>捻れたバベル</h1><nav>${await Link({
             to: "index",
             name: "TOP",
