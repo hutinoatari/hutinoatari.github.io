@@ -1,5 +1,5 @@
-export type Fiber<T> = {
-    (param: T): Promise<string>;
+export type Fiber = {
+    (param?: any): Promise<string>;
 };
 
 export type Fabric = {

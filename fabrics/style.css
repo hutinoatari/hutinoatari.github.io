@@ -1,0 +1,12 @@
+header, footer {
+    text-align: center;
+}
+
+a {
+    text-decoration: none;
+}
+
+main {
+    max-width: 1080px;
+    margin: 0 auto;
+}

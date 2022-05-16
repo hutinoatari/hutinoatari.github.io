@@ -14,17 +14,19 @@ for await (const file of files) {
         if (ext === ".ts") {
             import("./" + file.path).then(async (fabric) => {
                 const { head, body } = await fabric.default();
-                const html = `<html lang="ja"><head>${head}</head><body>${body}</body></html>`;
+                const html =
+                    `<html lang="ja"><head>${head}</head><body>${body}</body></html>`;
                 const outputPath =
                     file.path.replace("fabrics", "dist").slice(0, -3) + ".html";
                 await ensureFile(outputPath);
                 await Deno.writeTextFileSync(outputPath, html);
-                console.log(`generate ${outputPath}`);
+                console.log(`generate: ${outputPath}`);
             });
         } else {
             const outputPath = file.path.replace("fabrics", "dist");
             await ensureFile(outputPath);
             await Deno.copyFile(file.path, outputPath);
+            console.log(`copied  : ${outputPath}`);
         }
     }
 }
