@@ -15,7 +15,7 @@ for await (const file of files) {
             import("./" + file.path).then(async (fabric) => {
                 const { head, body } = await fabric.default();
                 const html =
-                    `<html lang="ja"><head>${head}</head><body>${body}</body></html>`;
+                    `<!DOCTYPE html><html lang="ja"><head>${head}</head><body>${body}</body></html>`;
                 const outputPath =
                     file.path.replace("fabrics", "dist").slice(0, -3) + ".html";
                 await ensureFile(outputPath);
