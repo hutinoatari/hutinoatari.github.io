@@ -14,7 +14,7 @@ const AboutPage: Fabric = async () => {
         })}・${await Link({
             to: "gallery",
             name: "GALLERY",
-        })}</nav></header><main><h2>ABOUT</h2><p>工事中......</p></main><footer><p><small>&copy;2021 淵野アタリ</small></p></footer>`,
+        })}</nav></header><main><h2>ABOUT</h2><p>準備中......</p></main><footer><p><small>&copy;2021 淵野アタリ</small></p></footer>`,
     };
 };
 
