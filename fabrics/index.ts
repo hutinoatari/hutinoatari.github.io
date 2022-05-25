@@ -26,6 +26,7 @@ const TopPage: Fabric = async () => {
     const json: WorkListResponse = await res.json();
     console.log(json);
     const contents = json.contents ?? [];
+    console.log(apikey.length);
     console.log(contents)
     const ul = document.createElement("ul");
     for (const content of contents) {
