@@ -10,7 +10,9 @@ const TopPage: Fabric = async () => {
     const p = document.createElement("p");
     p.appendChild(document.createTextNode("準備中......"));
 
-    const apikey = config().API_KEY;
+    //const apikey = config().API_KEY;
+    const apikey = config().API_KEY ?? Deno.env.get("API_KEY");
+    console.log(apikey.length);
     const req = new Request(
         "https://hutinoatariblog.microcms.io/api/v1/works?limit=3",
         {
