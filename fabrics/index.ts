@@ -12,7 +12,6 @@ const TopPage: Fabric = async () => {
 
     //const apikey = config().API_KEY;
     const apikey = config().API_KEY ?? Deno.env.get("API_KEY");
-    console.log(apikey.length);
     const req = new Request(
         "https://hutinoatariblog.microcms.io/api/v1/works?limit=3",
         {
@@ -24,12 +23,8 @@ const TopPage: Fabric = async () => {
         },
     );
     const res = await fetch(req);
-    console.log(res);
     const json: WorkListResponse = await res.json();
-    console.log(json);
     const contents = json.contents ?? [];
-    console.log(apikey.length);
-    console.log(contents)
     const ul = document.createElement("ul");
     for (const content of contents) {
         const li = document.createElement("li");
