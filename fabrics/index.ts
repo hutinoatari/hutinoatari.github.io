@@ -25,6 +25,7 @@ const TopPage: Fabric = async () => {
     const json = await res.json();
     const contents: WorkResponse[] = json.contents;
     const ul = document.createElement("ul");
+    console.log(contents);
     for (const content of contents as any[]) {
         const li = document.createElement("li");
         li.appendChild(document.createTextNode(content.name));
