@@ -1,6 +1,7 @@
 import { Fabric } from "../type.ts";
 import { DOMParser } from "https://deno.land/x/deno_dom/deno-dom-wasm.ts";
 import { config } from "https://deno.land/x/dotenv/mod.ts";
+import { WorkListResponse } from "../types/api.ts";
 
 const TopPage: Fabric = async () => {
     const document = new DOMParser().parseFromString("", "text/html");
@@ -21,7 +22,7 @@ const TopPage: Fabric = async () => {
         },
     );
     const res = await fetch(req);
-    const json = await res.json();
+    const json: WorkListResponse = await res.json();
     const ul = document.createElement("ul");
     for (const content of json.contents) {
         const li = document.createElement("li");
