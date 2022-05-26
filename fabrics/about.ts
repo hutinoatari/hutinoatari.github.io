@@ -8,6 +8,12 @@ const AboutPage: Fabric = async () => {
     const viewportMeta = document.createElement("meta");
     viewportMeta.setAttribute("name", "viewport");
     viewportMeta.setAttribute("content", "width=device-width");
+    const generatorMeta = document.createElement("meta");
+    generatorMeta.setAttribute("name", "generator");
+    generatorMeta.setAttribute(
+        "content",
+        "Loom (private Static Site Generator)",
+    );
     const title = document.createElement("title");
     title.textContent = "ABOUT | 捻れたバベル";
 
@@ -17,7 +23,7 @@ const AboutPage: Fabric = async () => {
     p.textContent = "準備中......";
 
     return {
-        head: [charsetMeta, viewportMeta, title],
+        head: [charsetMeta, viewportMeta, generatorMeta, title],
         body: [h2, p],
     };
 };

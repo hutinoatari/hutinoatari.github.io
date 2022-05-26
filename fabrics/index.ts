@@ -10,6 +10,12 @@ const TopPage: Fabric = async () => {
     const viewportMeta = document.createElement("meta");
     viewportMeta.setAttribute("name", "viewport");
     viewportMeta.setAttribute("content", "width=device-width");
+    const generatorMeta = document.createElement("meta");
+    generatorMeta.setAttribute("name", "generator");
+    generatorMeta.setAttribute(
+        "content",
+        "Loom (private Static Site Generator)",
+    );
     const title = document.createElement("title");
     title.textContent = "捻れたバベル";
 
@@ -38,7 +44,7 @@ const TopPage: Fabric = async () => {
     }
 
     return {
-        head: [charsetMeta, viewportMeta, title],
+        head: [charsetMeta, viewportMeta, generatorMeta, title],
         body: [p, ul],
     };
 };
