@@ -8,20 +8,12 @@ const Page: Document = async (head, body) => {
     const html = document.createElement("html");
     html.setAttribute("lang", "ja");
     const headPart = document.createElement("head");
-    if (Array.isArray(head)) {
-        head.forEach((e) => headPart.appendChild(e));
-    } else {
-        headPart.appendChild(head);
-    }
+    head.forEach((e) => headPart.appendChild(e));
     const bodyPart = document.createElement("body");
     const header = await Header();
     const footer = await Footer();
     const main = document.createElement("main");
-    if (Array.isArray(body)) {
-        body.forEach((e) => main.appendChild(e));
-    } else {
-        main.appendChild(body);
-    }
+    body.forEach((e) => main.appendChild(e));
     bodyPart.appendChild(header);
     bodyPart.appendChild(main);
     bodyPart.appendChild(footer);

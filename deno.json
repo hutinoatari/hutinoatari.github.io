@@ -7,7 +7,7 @@
             "DOM.Iterable",
             "esnext"
         ],
-        "strict": false,
+        "strict": false
     },
     "fmt": {
         "options": {

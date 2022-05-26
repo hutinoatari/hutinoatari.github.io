@@ -12,7 +12,7 @@ export type Fabric = {
 
 export type Document = {
     (
-        head: Node | Node[],
-        body: Node | Node[],
+        head: Node[],
+        body: Node[],
     ): Promise<Node>;
 };

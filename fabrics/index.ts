@@ -5,12 +5,17 @@ import { WorkListResponse } from "../types/api.ts";
 
 const TopPage: Fabric = async () => {
     const document = new DOMParser().parseFromString("", "text/html");
+    const charsetMeta = document.createElement("meta");
+    charsetMeta.setAttribute("charset", "UTF-8");
+    const viewportMeta = document.createElement("meta");
+    viewportMeta.setAttribute("name", "viewport");
+    viewportMeta.setAttribute("content", "width=device-width");
     const title = document.createElement("title");
-    title.appendChild(document.createTextNode("捻れたバベル"));
-    const p = document.createElement("p");
-    p.appendChild(document.createTextNode("準備中......"));
+    title.textContent = "捻れたバベル";
 
-    //const apikey = config().API_KEY;
+    const p = document.createElement("p");
+    p.textContent = "準備中......";
+
     const apikey = config().API_KEY ?? Deno.env.get("API_KEY");
     const req = new Request(
         "https://hutinoatariblog.microcms.io/api/v1/works?limit=3",
@@ -24,16 +29,16 @@ const TopPage: Fabric = async () => {
     );
     const res = await fetch(req);
     const json: WorkListResponse = await res.json();
-    const contents = json.contents ?? [];
+    const contents = json.contents;
     const ul = document.createElement("ul");
     for (const content of contents) {
         const li = document.createElement("li");
-        li.appendChild(document.createTextNode(content.name));
+        li.textContent = content.name;
         ul.appendChild(li);
     }
 
     return {
-        head: title,
+        head: [charsetMeta, viewportMeta, title],
         body: [p, ul],
     };
 };

@@ -5,8 +5,7 @@ const Header: Fiber = async () => {
     const document = new DOMParser().parseFromString("", "text/html");
     const header = document.createElement("header");
     const h1 = document.createElement("h1");
-    const h1Text = document.createTextNode("捻れたバベル");
-    h1.appendChild(h1Text);
+    h1.textContent = "捻れたバベル";
     header.appendChild(h1);
     return header;
 };

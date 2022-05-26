@@ -3,15 +3,21 @@ import { DOMParser } from "https://deno.land/x/deno_dom/deno-dom-wasm.ts";
 
 const AboutPage: Fabric = async () => {
     const document = new DOMParser().parseFromString("", "text/html");
+    const charsetMeta = document.createElement("meta");
+    charsetMeta.setAttribute("charset", "UTF-8");
+    const viewportMeta = document.createElement("meta");
+    viewportMeta.setAttribute("name", "viewport");
+    viewportMeta.setAttribute("content", "width=device-width");
     const title = document.createElement("title");
-    title.appendChild(document.createTextNode("ABOUT | 捻れたバベル"));
+    title.textContent = "ABOUT | 捻れたバベル";
+
     const h2 = document.createElement("h2");
-    h2.appendChild(document.createTextNode("ABOUT"));
+    h2.textContent = "ABOUT";
     const p = document.createElement("p");
-    p.appendChild(document.createTextNode("準備中......"));
+    p.textContent = "準備中......";
 
     return {
-        head: title,
+        head: [charsetMeta, viewportMeta, title],
         body: [h2, p],
     };
 };
