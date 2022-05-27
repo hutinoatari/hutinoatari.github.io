@@ -3,7 +3,7 @@ import {
     ensureFile,
     walk,
 } from "https://deno.land/std@0.139.0/fs/mod.ts";
-import { extname } from "https://deno.land/std@0.139.0/path/mod.ts";
+import { dirname, extname } from "https://deno.land/std@0.139.0/path/mod.ts";
 import { Page } from "./document.ts";
 import { DOMParser } from "https://deno.land/x/deno_dom/deno-dom-wasm.ts";
 
@@ -15,8 +15,24 @@ for await (const file of files) {
         const ext = extname(file.path);
         if (ext === ".ts") {
             const document = new DOMParser().parseFromString("", "text/html");
-            import("./" + file.path).then(async (fabric) => {
-                const { head, body } = await fabric.default();
+            const { default: fabric, nozzle } = await import("./" + file.path);
+            if (nozzle) {
+                const paths = await nozzle();
+                for await (const path of paths) {
+                    const { head, body } = await fabric(path);
+                    const htmlPart = await Page(head, body);
+                    const div = document.createElement("div");
+                    div.appendChild(htmlPart);
+                    const html = "<!DOCTYPE html>" + div.innerHTML;
+                    const outputPath = `${
+                        dirname(file.path.replace("fabrics", "dist"))
+                    }/${path}.html`;
+                    await ensureFile(outputPath);
+                    await Deno.writeTextFileSync(outputPath, html);
+                    console.log(`generate: ${outputPath}`);
+                }
+            } else {
+                const { head, body } = await fabric();
                 const htmlPart = await Page(head, body);
                 const div = document.createElement("div");
                 div.appendChild(htmlPart);
@@ -26,7 +42,7 @@ for await (const file of files) {
                 await ensureFile(outputPath);
                 await Deno.writeTextFileSync(outputPath, html);
                 console.log(`generate: ${outputPath}`);
-            });
+            }
         } else {
             const outputPath = file.path.replace("fabrics", "dist");
             await ensureFile(outputPath);

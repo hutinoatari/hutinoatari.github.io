@@ -9,6 +9,14 @@ export type Fabric = {
         { head: Node | Node[]; body: Node | Node[] }
     >;
 };
+export type FabricG = {
+    (path: string): Promise<
+        { head: Node | Node[]; body: Node | Node[] }
+    >;
+};
+export type Nozzle = {
+    (): Promise<string[]>;
+};
 
 export type Document = {
     (

@@ -19,7 +19,7 @@ const AboutPage: Fabric = async () => {
     const title = document.createElement("title");
     title.textContent = "ABOUT | 捻れたバベル";
 
-    const header = await Header("/about.html");
+    const header = await Header("dist/about.html");
     const main = document.createElement("main");
     const h2 = document.createElement("h2");
     h2.textContent = "ABOUT";

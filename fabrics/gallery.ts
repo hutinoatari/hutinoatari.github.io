@@ -5,7 +5,7 @@ import { WorkListResponse } from "../types/api.ts";
 import Header from "../fibers/Header.ts";
 import Footer from "../fibers/Footer.ts";
 
-const TopPage: Fabric = async () => {
+const GalleryPage: Fabric = async () => {
     const document = new DOMParser().parseFromString("", "text/html");
     const charsetMeta = document.createElement("meta");
     charsetMeta.setAttribute("charset", "UTF-8");
@@ -19,15 +19,15 @@ const TopPage: Fabric = async () => {
         "Loom (private Static Site Generator)",
     );
     const title = document.createElement("title");
-    title.textContent = "捻れたバベル";
+    title.textContent = "GALLERY | 捻れたバベル";
 
-    const header = await Header("dist/index.html");
+    const header = await Header("dist/gallery.html");
     const main = document.createElement("main");
-    const p = document.createElement("p");
-    p.textContent = "準備中......";
+    const h2 = document.createElement("h2");
+    h2.textContent = "GALLERY";
     const apikey = config().API_KEY ?? Deno.env.get("API_KEY");
     const req = new Request(
-        "https://hutinoatariblog.microcms.io/api/v1/works?limit=3",
+        "https://hutinoatariblog.microcms.io/api/v1/works?limit=1024",
         {
             method: "GET",
             headers: new Headers({
@@ -42,10 +42,15 @@ const TopPage: Fabric = async () => {
     const workUl = document.createElement("ul");
     for (const content of contents) {
         const workLi = document.createElement("li");
-        workLi.textContent = content.name;
+        const workA = document.createElement("a");
+        workA.setAttribute("href", `./gallery/${content.id}.html`);
+        workA.textContent = content.name;
+        workLi.appendChild(workA);
+        const p = document.createElement("p");
+        p.textContent = content.description;
         workUl.appendChild(workLi);
+        workUl.appendChild(p);
     }
-    main.appendChild(p);
     main.appendChild(workUl);
     const footer = await Footer();
 
@@ -55,4 +60,4 @@ const TopPage: Fabric = async () => {
     };
 };
 
-export default TopPage;
+export default GalleryPage;
