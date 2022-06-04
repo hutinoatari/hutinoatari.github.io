@@ -5,12 +5,7 @@ export type Fiber = {
 };
 
 export type Fabric = {
-    (): Promise<
-        { head: Node | Node[]; body: Node | Node[] }
-    >;
-};
-export type FabricG = {
-    (path: string): Promise<
+    (path?: string): Promise<
         { head: Node | Node[]; body: Node | Node[] }
     >;
 };
