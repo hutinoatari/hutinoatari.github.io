@@ -20,6 +20,9 @@ const TopPage: Fabric = async () => {
     );
     const title = document.createElement("title");
     title.textContent = "捻れたバベル";
+    const link = document.createElement("link");
+    link.setAttribute("href", "./style.css");
+    link.setAttribute("rel", "stylesheet");
 
     const header = await Header("dist/index.html");
     const main = document.createElement("main");
@@ -50,7 +53,7 @@ const TopPage: Fabric = async () => {
     const footer = await Footer();
 
     return {
-        head: [charsetMeta, viewportMeta, generatorMeta, title],
+        head: [charsetMeta, viewportMeta, generatorMeta, title, link],
         body: [header, main, footer],
     };
 };

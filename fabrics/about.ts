@@ -18,6 +18,9 @@ const AboutPage: Fabric = async () => {
     );
     const title = document.createElement("title");
     title.textContent = "ABOUT | 捻れたバベル";
+    const link = document.createElement("link");
+    link.setAttribute("href", "./style.css");
+    link.setAttribute("rel", "stylesheet");
 
     const header = await Header("dist/about.html");
     const main = document.createElement("main");
@@ -29,7 +32,7 @@ const AboutPage: Fabric = async () => {
     const footer = await Footer();
 
     return {
-        head: [charsetMeta, viewportMeta, generatorMeta, title],
+        head: [charsetMeta, viewportMeta, generatorMeta, title, link],
         body: [header, main, footer],
     };
 };
