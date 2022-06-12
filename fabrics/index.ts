@@ -2,24 +2,11 @@ import { document, Fabric } from "../loom.ts";
 import Header from "../fibers/Header.ts";
 import Footer from "../fibers/Footer.ts";
 import { getData } from "../libs/microcms.ts";
+import Head from "../fibers/Head.ts";
 
 const TopPage: Fabric<{}> = async ({ currentURL }) => {
-    const charsetMeta = document.createElement("meta");
-    charsetMeta.setAttribute("charset", "UTF-8");
-    const viewportMeta = document.createElement("meta");
-    viewportMeta.setAttribute("name", "viewport");
-    viewportMeta.setAttribute("content", "width=device-width");
-    const generatorMeta = document.createElement("meta");
-    generatorMeta.setAttribute("name", "generator");
-    generatorMeta.setAttribute(
-        "content",
-        "Loom (private Static Site Generator)",
-    );
-    const title = document.createElement("title");
-    title.textContent = "捻れたバベル";
-    const link = document.createElement("link");
-    link.setAttribute("href", "./style.css");
-    link.setAttribute("rel", "stylesheet");
+    const from = currentURL.slice(4);
+    const head = await Head({ titleName: "捻れたバベル", from });
 
     const header = await Header(currentURL);
     const main = document.createElement("main");
@@ -43,7 +30,7 @@ const TopPage: Fabric<{}> = async ({ currentURL }) => {
     const footer = await Footer();
 
     return {
-        head: [charsetMeta, viewportMeta, generatorMeta, title, link],
+        head: Array.from(head.childNodes),
         body: [header, main, footer],
     };
 };

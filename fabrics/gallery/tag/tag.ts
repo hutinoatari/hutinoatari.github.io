@@ -2,6 +2,7 @@ import { document, Fabric, Nozzle } from "../../../loom.ts";
 import Header from "../../../fibers/Header.ts";
 import Footer from "../../../fibers/Footer.ts";
 import { getData } from "../../../libs/microcms.ts";
+import Head from "../../../fibers/Head.ts";
 
 const TagPage: Fabric<{}> = async ({ currentURL, id }) => {
     const tag = (await getData({
@@ -9,22 +10,8 @@ const TagPage: Fabric<{}> = async ({ currentURL, id }) => {
         id,
     }));
 
-    const charsetMeta = document.createElement("meta");
-    charsetMeta.setAttribute("charset", "UTF-8");
-    const viewportMeta = document.createElement("meta");
-    viewportMeta.setAttribute("name", "viewport");
-    viewportMeta.setAttribute("content", "width=device-width");
-    const generatorMeta = document.createElement("meta");
-    generatorMeta.setAttribute("name", "generator");
-    generatorMeta.setAttribute(
-        "content",
-        "Loom (private Static Site Generator)",
-    );
-    const title = document.createElement("title");
-    title.textContent = `${tag.name} | 捻れたバベル`;
-    const link = document.createElement("link");
-    link.setAttribute("href", "../../style.css");
-    link.setAttribute("rel", "stylesheet");
+    const from = currentURL.slice(4);
+    const head = await Head({ titleName: `${tag.name} | 捻れたバベル`, from });
 
     const header = await Header(currentURL);
     const main = document.createElement("main");
@@ -54,7 +41,7 @@ const TagPage: Fabric<{}> = async ({ currentURL, id }) => {
     const footer = await Footer();
 
     return {
-        head: [charsetMeta, viewportMeta, generatorMeta, title, link],
+        head: Array.from(head.childNodes),
         body: [header, main, footer],
     };
 };

@@ -1,5 +1,5 @@
 import { document, Fiber } from "../loom.ts";
-import { parse, relative } from "https://deno.land/std@0.139.0/path/mod.ts";
+import { relativePath } from "../utils/util.ts";
 
 interface Props {
     from: string;
@@ -17,11 +17,8 @@ const InternalLink: Fiber = async ({
         span.textContent = name;
         return span;
     }
-    const fromP = parse(from);
-    const toP = parse(to);
-    const p = relative(fromP.dir, toP.dir);
     const a = document.createElement("a");
-    a.setAttribute("href", `${p !== "" ? p : "."}/${toP.base}`);
+    a.setAttribute("href", relativePath(from, to));
     a.textContent = name;
     return a;
 };
