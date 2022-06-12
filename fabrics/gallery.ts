@@ -1,8 +1,8 @@
 import { document, Fabric } from "../loom.ts";
 import { config } from "https://deno.land/x/dotenv/mod.ts";
-import { WorkListResponse } from "../types/api.ts";
 import Header from "../fibers/Header.ts";
 import Footer from "../fibers/Footer.ts";
+import { getData } from "../libs/microcms.ts";
 
 const GalleryPage: Fabric<{}> = async ({ currentURL }) => {
     const charsetMeta = document.createElement("meta");
@@ -30,19 +30,9 @@ const GalleryPage: Fabric<{}> = async ({ currentURL }) => {
     const apikey = config().API_KEY ?? Deno.env.get("API_KEY");
     const h31 = document.createElement("h3");
     h31.textContent = "TAG";
-    const req1 = new Request(
-        "https://hutinoatariblog.microcms.io/api/v1/tags",
-        {
-            method: "GET",
-            headers: new Headers({
-                "content-type": "application/json",
-                "X-MICROCMS-API-KEY": apikey,
-            }),
-        },
-    );
-    const res1 = await fetch(req1);
-    const json1: WorkListResponse = await res1.json();
-    const contents1 = json1.contents;
+    const contents1 = (await getData({
+        endpoint: "tags",
+    })).contents;
     const tagUl = document.createElement("ul");
     for (const content of contents1) {
         const tagLi = document.createElement("li");
@@ -56,19 +46,10 @@ const GalleryPage: Fabric<{}> = async ({ currentURL }) => {
     main.appendChild(tagUl);
     const h32 = document.createElement("h3");
     h32.textContent = "WORK";
-    const req2 = new Request(
-        "https://hutinoatariblog.microcms.io/api/v1/works?limit=1024",
-        {
-            method: "GET",
-            headers: new Headers({
-                "content-type": "application/json",
-                "X-MICROCMS-API-KEY": apikey,
-            }),
-        },
-    );
-    const res2 = await fetch(req2);
-    const json2: WorkListResponse = await res2.json();
-    const contents2 = json2.contents;
+    const contents2 = (await getData({
+        endpoint: "works",
+        options: [["limit", 1024]],
+    })).contents;
     const workUl = document.createElement("ul");
     for (const content of contents2) {
         const workLi = document.createElement("li");

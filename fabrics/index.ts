@@ -1,8 +1,7 @@
 import { document, Fabric } from "../loom.ts";
-import { config } from "https://deno.land/x/dotenv/mod.ts";
-import { WorkListResponse } from "../types/api.ts";
 import Header from "../fibers/Header.ts";
 import Footer from "../fibers/Footer.ts";
+import { getData } from "../libs/microcms.ts";
 
 const TopPage: Fabric<{}> = async ({ currentURL }) => {
     const charsetMeta = document.createElement("meta");
@@ -26,20 +25,10 @@ const TopPage: Fabric<{}> = async ({ currentURL }) => {
     const main = document.createElement("main");
     const p = document.createElement("p");
     p.textContent = "準備中......";
-    const apikey = config().API_KEY ?? Deno.env.get("API_KEY");
-    const req = new Request(
-        "https://hutinoatariblog.microcms.io/api/v1/works?limit=3",
-        {
-            method: "GET",
-            headers: new Headers({
-                "content-type": "application/json",
-                "X-MICROCMS-API-KEY": apikey,
-            }),
-        },
-    );
-    const res = await fetch(req);
-    const json: WorkListResponse = await res.json();
-    const contents = json.contents;
+    const contents = (await getData({
+        endpoint: "works",
+        options: [["limit", 3]],
+    })).contents;
     const workUl = document.createElement("ul");
     for (const content of contents) {
         const workLi = document.createElement("li");
