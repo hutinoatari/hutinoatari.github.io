@@ -1,20 +1,12 @@
 import { document, Fabric } from "../loom.ts";
-import { config } from "https://deno.land/x/dotenv/mod.ts";
-import Header from "../fibers/Header.ts";
-import Footer from "../fibers/Footer.ts";
 import { getData } from "../libs/microcms.ts";
-import Head from "../fibers/Head.ts";
 
-const GalleryPage: Fabric<{}> = async ({ currentURL }) => {
-    const from = currentURL.slice(4);
-    const head = await Head({ titleName: "GALLERY | 捻れたバベル", from });
+const GalleryPage: Fabric<{}> = async () => {
+    const title = document.createElement("title");
+    title.textContent = "GALLERY | 捻れたバベル";
 
-    const header = await Header(currentURL);
-    const main = document.createElement("main");
     const h2 = document.createElement("h2");
     h2.textContent = "GALLERY";
-    main.appendChild(h2);
-    const apikey = config().API_KEY ?? Deno.env.get("API_KEY");
     const h31 = document.createElement("h3");
     h31.textContent = "TAG";
     const contents1 = (await getData({
@@ -29,8 +21,6 @@ const GalleryPage: Fabric<{}> = async ({ currentURL }) => {
         tagLi.appendChild(tagA);
         tagUl.appendChild(tagLi);
     }
-    main.appendChild(h31);
-    main.appendChild(tagUl);
     const h32 = document.createElement("h3");
     h32.textContent = "WORK";
     const contents2 = (await getData({
@@ -49,13 +39,10 @@ const GalleryPage: Fabric<{}> = async ({ currentURL }) => {
         workUl.appendChild(workLi);
         workUl.appendChild(p);
     }
-    main.appendChild(h32);
-    main.appendChild(workUl);
-    const footer = await Footer();
 
     return {
-        head: Array.from(head.childNodes),
-        body: [header, main, footer],
+        head: [title],
+        body: [h2, h31, tagUl, h32, workUl],
     };
 };
 

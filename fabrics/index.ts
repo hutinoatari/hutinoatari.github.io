@@ -1,15 +1,10 @@
 import { document, Fabric } from "../loom.ts";
-import Header from "../fibers/Header.ts";
-import Footer from "../fibers/Footer.ts";
 import { getData } from "../libs/microcms.ts";
-import Head from "../fibers/Head.ts";
 
-const TopPage: Fabric<{}> = async ({ currentURL }) => {
-    const from = currentURL.slice(4);
-    const head = await Head({ titleName: "捻れたバベル", from });
+const TopPage: Fabric<{}> = async () => {
+    const title = document.createElement("title");
+    title.textContent = "捻れたバベル";
 
-    const header = await Header(currentURL);
-    const main = document.createElement("main");
     const p = document.createElement("p");
     p.textContent = "準備中......";
     const contents = (await getData({
@@ -25,13 +20,10 @@ const TopPage: Fabric<{}> = async ({ currentURL }) => {
         workLi.appendChild(a);
         workUl.appendChild(workLi);
     }
-    main.appendChild(p);
-    main.appendChild(workUl);
-    const footer = await Footer();
 
     return {
-        head: Array.from(head.childNodes),
-        body: [header, main, footer],
+        head: [title],
+        body: [p, workUl],
     };
 };
 

@@ -38,8 +38,8 @@ for await (const file of files) {
                 ext: ".html",
                 name: id,
             });
-            const doms = await fabric({ currentURL: outputPath, id });
-            const htmlPart = await Page(doms);
+            const doms = await fabric({ id });
+            const htmlPart = await Page(doms, outputPath);
             const div = document.createElement("div");
             div.appendChild(htmlPart);
             const html = "<!DOCTYPE html>" + div.innerHTML;
@@ -54,8 +54,8 @@ for await (const file of files) {
             ext: ".html",
             name,
         });
-        const doms = await fabric({ currentURL: outputPath });
-        const htmlPart = await Page(doms);
+        const doms = await fabric();
+        const htmlPart = await Page(doms, outputPath);
         const div = document.createElement("div");
         div.appendChild(htmlPart);
         const html = "<!DOCTYPE html>" + div.innerHTML;

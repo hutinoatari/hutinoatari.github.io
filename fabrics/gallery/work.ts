@@ -1,21 +1,16 @@
 import { document, Fabric, Nozzle } from "../../loom.ts";
 import { cheeseTownToHtml } from "../../libs/cheeseTown.ts";
-import Header from "../../fibers/Header.ts";
-import Footer from "../../fibers/Footer.ts";
 import { getData } from "../../libs/microcms.ts";
-import Head from "../../fibers/Head.ts";
 
-const WorkPage: Fabric<{}> = async ({ currentURL, id }) => {
+const WorkPage: Fabric<{}> = async ({ id }) => {
     const work = await getData({
         endpoint: "works",
         id,
     });
 
-    const from = currentURL.slice(4);
-    const head = await Head({ titleName: `${work.name} | 捻れたバベル`, from });
+    const title = document.createElement("title");
+    title.textContent = `${work.name} | 捻れたバベル`;
 
-    const header = await Header(currentURL);
-    const main = document.createElement("main");
     const h2 = document.createElement("h2");
     h2.textContent = work.name;
     const p = document.createElement("p");
@@ -24,21 +19,16 @@ const WorkPage: Fabric<{}> = async ({ currentURL, id }) => {
     a.textContent = work.tag.name;
     p.appendChild(document.createTextNode("タグ: "));
     p.appendChild(a);
-    main.appendChild(p);
     const div1 = document.createElement("div");
     const img = document.createElement("img");
     img.setAttribute("src", work.image.url);
     div1.appendChild(img);
     const div2 = document.createElement("div");
     div2.innerHTML = cheeseTownToHtml(work.caption);
-    main.appendChild(h2);
-    main.appendChild(div1);
-    main.appendChild(div2);
-    const footer = await Footer();
 
     return {
-        head: Array.from(head.childNodes),
-        body: [header, main, footer],
+        head: [title],
+        body: [p, h2, div1, div2],
     };
 };
 

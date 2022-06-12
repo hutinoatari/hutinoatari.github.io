@@ -6,7 +6,6 @@ export type Fiber = {
 };
 
 type FabricProps<T> = {
-    currentURL: string;
     id?: string;
 } & T;
 type PageDOM = { head: Node[]; body: Node[] };
@@ -19,7 +18,7 @@ export type Nozzle = {
 };
 
 export type Document = {
-    (doms: PageDOM): Promise<Node>;
+    (doms: PageDOM, currentPath: string): Promise<Node>;
 };
 
 const document = new DOMParser().parseFromString("", "text/html");
