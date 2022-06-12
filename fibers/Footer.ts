@@ -1,12 +1,10 @@
-import { Fiber } from "../loom.ts";
-import { DOMParser } from "https://deno.land/x/deno_dom/deno-dom-wasm.ts";
+import { document, Fiber } from "../loom.ts";
 
 const Footer: Fiber = async () => {
-    const document = new DOMParser().parseFromString("", "text/html");
     const footer = document.createElement("footer");
     const p = document.createElement("p");
     const small = document.createElement("small");
-    small.innerHTML = "&copy;2021 淵野アタリ";
+    small.innerHTML = "&copy;2016 淵野アタリ";
     p.appendChild(small);
     footer.appendChild(p);
     return footer;
