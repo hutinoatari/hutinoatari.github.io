@@ -1,8 +1,6 @@
-import { DOMParser } from "https://deno.land/x/deno_dom/deno-dom-wasm.ts";
-import { Document } from "./type.ts";
+import { Document, document } from "./loom.ts";
 
-const Page: Document = async (head, body) => {
-    const document = new DOMParser().parseFromString("", "text/html");
+const Page: Document = async ({ head, body }) => {
     const html = document.createElement("html");
     html.setAttribute("lang", "ja");
     const headPart = document.createElement("head");

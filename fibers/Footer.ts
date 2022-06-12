@@ -1,4 +1,4 @@
-import { Fiber } from "../type.ts";
+import { Fiber } from "../loom.ts";
 import { DOMParser } from "https://deno.land/x/deno_dom/deno-dom-wasm.ts";
 
 const Footer: Fiber = async () => {

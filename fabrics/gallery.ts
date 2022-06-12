@@ -1,12 +1,10 @@
-import { Fabric } from "../type.ts";
-import { DOMParser } from "https://deno.land/x/deno_dom/deno-dom-wasm.ts";
+import { document, Fabric } from "../loom.ts";
 import { config } from "https://deno.land/x/dotenv/mod.ts";
 import { WorkListResponse } from "../types/api.ts";
 import Header from "../fibers/Header.ts";
 import Footer from "../fibers/Footer.ts";
 
-const GalleryPage: Fabric = async () => {
-    const document = new DOMParser().parseFromString("", "text/html");
+const GalleryPage: Fabric<{}> = async ({ currentURL }) => {
     const charsetMeta = document.createElement("meta");
     charsetMeta.setAttribute("charset", "UTF-8");
     const viewportMeta = document.createElement("meta");
@@ -24,7 +22,7 @@ const GalleryPage: Fabric = async () => {
     link.setAttribute("href", "./style.css");
     link.setAttribute("rel", "stylesheet");
 
-    const header = await Header("dist/gallery.html");
+    const header = await Header(currentURL);
     const main = document.createElement("main");
     const h2 = document.createElement("h2");
     h2.textContent = "GALLERY";

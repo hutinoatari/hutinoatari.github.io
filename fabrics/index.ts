@@ -1,12 +1,10 @@
-import { Fabric } from "../type.ts";
-import { DOMParser } from "https://deno.land/x/deno_dom/deno-dom-wasm.ts";
+import { document, Fabric } from "../loom.ts";
 import { config } from "https://deno.land/x/dotenv/mod.ts";
 import { WorkListResponse } from "../types/api.ts";
 import Header from "../fibers/Header.ts";
 import Footer from "../fibers/Footer.ts";
 
-const TopPage: Fabric = async () => {
-    const document = new DOMParser().parseFromString("", "text/html");
+const TopPage: Fabric<{}> = async ({ currentURL }) => {
     const charsetMeta = document.createElement("meta");
     charsetMeta.setAttribute("charset", "UTF-8");
     const viewportMeta = document.createElement("meta");
@@ -24,7 +22,7 @@ const TopPage: Fabric = async () => {
     link.setAttribute("href", "./style.css");
     link.setAttribute("rel", "stylesheet");
 
-    const header = await Header("dist/index.html");
+    const header = await Header(currentURL);
     const main = document.createElement("main");
     const p = document.createElement("p");
     p.textContent = "準備中......";
