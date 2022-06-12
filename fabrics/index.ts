@@ -45,7 +45,10 @@ const TopPage: Fabric = async () => {
     const workUl = document.createElement("ul");
     for (const content of contents) {
         const workLi = document.createElement("li");
-        workLi.textContent = content.name;
+        const a = document.createElement("a");
+        a.setAttribute("href", `./gallery/${content.id}.html`);
+        a.textContent = content.name;
+        workLi.appendChild(a);
         workUl.appendChild(workLi);
     }
     main.appendChild(p);
