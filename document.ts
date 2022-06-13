@@ -21,18 +21,23 @@ const Page: Document = async ({ head, body }, currentPath) => {
         "Loom (private Static Site Generator)",
     );
     const descriptionMeta = document.createElement("meta");
+    descriptionMeta.setAttribute("name", "description");
     descriptionMeta.setAttribute(
-        "description",
+        "content",
         "淵野アタリのポートフォリオサイトです。手芸やプログラミングの作品を公開しています。",
     );
     const authorMeta = document.createElement("meta");
-    authorMeta.setAttribute("author", "淵野アタリ");
+    authorMeta.setAttribute("name", "author");
+    authorMeta.setAttribute("content", "淵野アタリ");
     const ogSiteMeta = document.createElement("meta");
-    ogSiteMeta.setAttribute("og:site_name", "捻れたバベル");
+    ogSiteMeta.setAttribute("name", "og:site_name");
+    ogSiteMeta.setAttribute("content", "捻れたバベル");
     const twitterCardMeta = document.createElement("meta");
-    twitterCardMeta.setAttribute("twitter:card", "summary");
+    twitterCardMeta.setAttribute("name", "twitter:card");
+    twitterCardMeta.setAttribute("content", "summary");
     const twitterSiteMeta = document.createElement("meta");
-    twitterSiteMeta.setAttribute("twitter:site", "@hutinoatari");
+    twitterSiteMeta.setAttribute("name", "twitter:site");
+    twitterSiteMeta.setAttribute("content", "@hutinoatari");
     const link = document.createElement("link");
     link.setAttribute("href", relativePath(from, "/style.css"));
     link.setAttribute("rel", "stylesheet");
