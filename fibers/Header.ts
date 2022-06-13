@@ -16,8 +16,8 @@ const Header: Fiber = async (currentURL: string) => {
         },
         {
             from,
-            to: "/about.html",
-            name: "ABOUT",
+            to: "/profile.html",
+            name: "PROFILE",
         },
         {
             from,

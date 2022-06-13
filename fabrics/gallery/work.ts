@@ -28,7 +28,7 @@ const WorkPage: Fabric<{}> = async ({ id }) => {
 
     return {
         head: [title],
-        body: [p, h2, div1, div2],
+        body: [h2, p, div1, div2],
     };
 };
 
