@@ -5,12 +5,16 @@ const TopPage: Fabric<{}> = async () => {
     const title = document.createElement("title");
     title.textContent = "捻れたバベル";
 
-    const p = document.createElement("p");
-    p.textContent = "準備中......";
+    const aboutH2 = document.createElement("h2");
+    aboutH2.textContent = "ABOUT";
+    const aboutP = document.createElement("p");
+    aboutP.textContent = "準備中......";
     const contents = (await getData({
         endpoint: "works",
         options: [["limit", 3]],
     })).contents;
+    const workH2 = document.createElement("h2");
+    workH2.textContent = "WORK";
     const workUl = document.createElement("ul");
     for (const content of contents) {
         const workLi = document.createElement("li");
@@ -23,7 +27,7 @@ const TopPage: Fabric<{}> = async () => {
 
     return {
         head: [title],
-        body: [p, workUl],
+        body: [aboutH2, aboutP, workH2, workUl],
     };
 };
 

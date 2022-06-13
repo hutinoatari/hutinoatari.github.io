@@ -20,12 +20,33 @@ const Page: Document = async ({ head, body }, currentPath) => {
         "content",
         "Loom (private Static Site Generator)",
     );
+    const descriptionMeta = document.createElement("meta");
+    descriptionMeta.setAttribute(
+        "description",
+        "淵野アタリのポートフォリオサイトです。手芸やプログラミングの作品を公開しています。",
+    );
+    const authorMeta = document.createElement("meta");
+    authorMeta.setAttribute("author", "淵野アタリ");
+    const ogSiteMeta = document.createElement("meta");
+    ogSiteMeta.setAttribute("og:site_name", "捻れたバベル");
+    const twitterCardMeta = document.createElement("meta");
+    twitterCardMeta.setAttribute("twitter:card", "summary");
+    const twitterSiteMeta = document.createElement("meta");
+    twitterSiteMeta.setAttribute("twitter:site", "@hutinoatari");
     const link = document.createElement("link");
     link.setAttribute("href", relativePath(from, "/style.css"));
     link.setAttribute("rel", "stylesheet");
-    [charsetMeta, viewportMeta, generatorMeta, link].forEach((e) =>
-        headPart.appendChild(e)
-    );
+    [
+        charsetMeta,
+        viewportMeta,
+        generatorMeta,
+        descriptionMeta,
+        authorMeta,
+        ogSiteMeta,
+        twitterCardMeta,
+        twitterSiteMeta,
+        link,
+    ].forEach((e) => headPart.appendChild(e));
 
     head.forEach((e) => headPart.appendChild(e));
     const bodyPart = document.createElement("body");
