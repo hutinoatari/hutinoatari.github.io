@@ -1,4 +1,4 @@
-import { document, Fabric, Nozzle } from "../../loom.ts";
+import { addNode, document, Fabric, Nozzle } from "../../loom.ts";
 import { cheeseTownToHtml } from "../../libs/cheeseTown.ts";
 import { getData } from "../../libs/microcms.ts";
 
@@ -17,12 +17,11 @@ const WorkPage: Fabric<{}> = async ({ id }) => {
     const a = document.createElement("a");
     a.setAttribute("href", `./tag/${work.tag.id}.html`);
     a.textContent = work.tag.name;
-    p.appendChild(document.createTextNode("タグ: "));
-    p.appendChild(a);
+    addNode(p, [document.createTextNode("タグ: "), a]);
     const div1 = document.createElement("div");
     const img = document.createElement("img");
     img.setAttribute("src", work.image.url);
-    div1.appendChild(img);
+    addNode(div1, img);
     const div2 = document.createElement("div");
     div2.innerHTML = cheeseTownToHtml(work.caption);
 

@@ -1,4 +1,4 @@
-import { document, Fiber } from "../loom.ts";
+import { addNode, document, Fiber } from "../loom.ts";
 import { relativePath } from "../utils/util.ts";
 
 const Head: Fiber = async ({ titleName, from }) => {
@@ -21,7 +21,7 @@ const Head: Fiber = async ({ titleName, from }) => {
 
     const span = document.createElement("span");
     [charsetMeta, viewportMeta, generatorMeta, title, link].forEach((e) =>
-        span.appendChild(e)
+        addNode(span, e)
     );
     return span;
 };

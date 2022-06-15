@@ -1,4 +1,4 @@
-import { Document, document } from "./loom.ts";
+import { addNode, Document, document } from "./loom.ts";
 import Header from "./fibers/Header.ts";
 import Footer from "./fibers/Footer.ts";
 import { relativePath } from "./utils/util.ts";
@@ -41,7 +41,7 @@ const Page: Document = async ({ head, body }, currentPath) => {
     const link = document.createElement("link");
     link.setAttribute("href", relativePath(from, "/style.css"));
     link.setAttribute("rel", "stylesheet");
-    [
+    addNode(headPart, [
         charsetMeta,
         viewportMeta,
         generatorMeta,
@@ -51,19 +51,18 @@ const Page: Document = async ({ head, body }, currentPath) => {
         twitterCardMeta,
         twitterSiteMeta,
         link,
-    ].forEach((e) => headPart.appendChild(e));
+    ]);
+    addNode(headPart, head);
 
-    head.forEach((e) => headPart.appendChild(e));
     const bodyPart = document.createElement("body");
     const main = document.createElement("main");
-    body.forEach((e) => main.appendChild(e));
+    addNode(main, body);
     const header = await Header(currentPath);
     const footer = await Footer();
-    bodyPart.appendChild(header);
-    bodyPart.appendChild(main);
-    bodyPart.appendChild(footer);
-    html.appendChild(headPart);
-    html.appendChild(bodyPart);
+    addNode(bodyPart, header);
+    addNode(bodyPart, main);
+    addNode(bodyPart, footer);
+    addNode(html, [headPart, bodyPart]);
     return html;
 };
 

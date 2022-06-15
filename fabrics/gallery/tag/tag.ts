@@ -1,4 +1,4 @@
-import { document, Fabric, Nozzle } from "../../../loom.ts";
+import { addNode, document, Fabric, Nozzle } from "../../../loom.ts";
 import { getData } from "../../../libs/microcms.ts";
 
 const TagPage: Fabric<{}> = async ({ id }) => {
@@ -24,11 +24,10 @@ const TagPage: Fabric<{}> = async ({ id }) => {
         const workA = document.createElement("a");
         workA.setAttribute("href", `../${content.id}.html`);
         workA.textContent = content.name;
-        workLi.appendChild(workA);
+        addNode(workLi, workA);
         const p = document.createElement("p");
         p.textContent = content.description;
-        workUl.appendChild(workLi);
-        workUl.appendChild(p);
+        addNode(workUl, [workLi, p]);
     }
 
     return {

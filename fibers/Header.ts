@@ -1,4 +1,4 @@
-import { document, Fiber } from "../loom.ts";
+import { addNode, document, Fiber } from "../loom.ts";
 import InternalLink from "./InternalLink.ts";
 
 const Header: Fiber = async (currentURL: string) => {
@@ -27,12 +27,11 @@ const Header: Fiber = async (currentURL: string) => {
     ].forEach(async (e) => {
         const li = document.createElement("li");
         const a = await InternalLink(e);
-        li.appendChild(a);
-        ul.appendChild(li);
+        addNode(li, a);
+        addNode(ul, li);
     });
-    nav.appendChild(ul);
-    header.appendChild(h1);
-    header.appendChild(nav);
+    addNode(nav, ul);
+    addNode(header, [h1, nav]);
     return header;
 };
 

@@ -1,4 +1,4 @@
-import { document, Fabric } from "../loom.ts";
+import { addNode, document, Fabric } from "../loom.ts";
 
 const ProfilePage: Fabric<{}> = async () => {
     const title = document.createElement("title");
@@ -18,8 +18,7 @@ const ProfilePage: Fabric<{}> = async () => {
         dt.textContent = e[0];
         const dd = document.createElement("dd");
         dd.textContent = e[1];
-        dl.appendChild(dt);
-        dl.appendChild(dd);
+        addNode(dl, [dt, dd]);
     });
 
     return {

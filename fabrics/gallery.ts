@@ -1,4 +1,4 @@
-import { document, Fabric } from "../loom.ts";
+import { addNode, document, Fabric } from "../loom.ts";
 import { getData } from "../libs/microcms.ts";
 
 const GalleryPage: Fabric<{}> = async () => {
@@ -18,8 +18,8 @@ const GalleryPage: Fabric<{}> = async () => {
         const tagA = document.createElement("a");
         tagA.setAttribute("href", `./gallery/tag/${content.id}.html`);
         tagA.textContent = content.name;
-        tagLi.appendChild(tagA);
-        tagUl.appendChild(tagLi);
+        addNode(tagLi, tagA);
+        addNode(tagUl, tagLi);
     }
     const h32 = document.createElement("h3");
     h32.textContent = "WORK";
@@ -33,11 +33,10 @@ const GalleryPage: Fabric<{}> = async () => {
         const workA = document.createElement("a");
         workA.setAttribute("href", `./gallery/${content.id}.html`);
         workA.textContent = content.name;
-        workLi.appendChild(workA);
+        addNode(workLi, workA);
         const p = document.createElement("p");
         p.textContent = content.description;
-        workUl.appendChild(workLi);
-        workUl.appendChild(p);
+        addNode(workUl, [workLi, p]);
     }
 
     return {

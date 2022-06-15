@@ -1,4 +1,4 @@
-import { document, Fabric } from "../loom.ts";
+import { addNode, document, Fabric } from "../loom.ts";
 import { getData } from "../libs/microcms.ts";
 
 const TopPage: Fabric<{}> = async () => {
@@ -21,8 +21,8 @@ const TopPage: Fabric<{}> = async () => {
         const a = document.createElement("a");
         a.setAttribute("href", `./gallery/${content.id}.html`);
         a.textContent = content.name;
-        workLi.appendChild(a);
-        workUl.appendChild(workLi);
+        addNode(workLi, a);
+        addNode(workUl, workLi);
     }
 
     return {
