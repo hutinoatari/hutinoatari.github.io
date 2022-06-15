@@ -9,7 +9,8 @@ const WorkPage: Fabric<{}> = async ({ id }) => {
         id,
     });
 
-    const metas = await Metas();
+    const metas = await Metas(work.image.url);
+
     const title = document.createElement("title");
     title.textContent = `${work.name} | 捻れたバベル`;
 
