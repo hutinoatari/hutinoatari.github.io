@@ -1,7 +1,7 @@
 import { document, Fibers } from "../loom.ts";
 import Meta from "./Meta.ts";
 
-const Metas: Fibers = async (ogpURL?: string) => {
+const Metas: Fibers = async (description?: string, ogpURL?: string) => {
     const charsetMeta = document.createElement("meta");
     charsetMeta.setAttribute("charset", "UTF-8");
     const viewportMeta = await Meta("viewport", "width=device-width");
@@ -11,7 +11,7 @@ const Metas: Fibers = async (ogpURL?: string) => {
     );
     const descriptionMeta = await Meta(
         "description",
-        "淵野アタリのポートフォリオサイトです。手芸やプログラミングの作品を公開しています。",
+        description ?? "淵野アタリのポートフォリオサイトです。手芸やプログラミングの作品を公開しています。",
     );
     const authorMeta = await Meta("author", "淵野アタリ");
     const ogSiteMeta = await Meta("og:site_name", "捻れたバベル");

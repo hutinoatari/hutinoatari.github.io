@@ -20,9 +20,7 @@ const Page: Document = async ({ head, body }, currentPath) => {
     addNode(main, body);
     const header = await Header(currentPath);
     const footer = await Footer();
-    addNode(bodyPart, header);
-    addNode(bodyPart, main);
-    addNode(bodyPart, footer);
+    addNode(bodyPart, [header, main, footer]);
     addNode(html, [headPart, bodyPart]);
     return html;
 };
