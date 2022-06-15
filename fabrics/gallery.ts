@@ -5,12 +5,12 @@ import Metas from "../fibers/Metas.ts";
 const GalleryPage: Fabric<{}> = async () => {
     const metas = await Metas();
     const title = document.createElement("title");
-    title.textContent = "GALLERY | 捻れたバベル";
+    title.textContent = "ギャラリー";
 
     const h2 = document.createElement("h2");
-    h2.textContent = "GALLERY";
+    h2.textContent = "ギャラリー";
     const h31 = document.createElement("h3");
-    h31.textContent = "TAG";
+    h31.textContent = "タグ";
     const contents1 = (await getData({
         endpoint: "tags",
     })).contents;
@@ -24,7 +24,7 @@ const GalleryPage: Fabric<{}> = async () => {
         addNode(tagUl, tagLi);
     }
     const h32 = document.createElement("h3");
-    h32.textContent = "WORK";
+    h32.textContent = "作品";
     const contents2 = (await getData({
         endpoint: "works",
         options: [["limit", 1024]],

@@ -5,10 +5,10 @@ import Metas from "../fibers/Metas.ts";
 const TopPage: Fabric<{}> = async () => {
     const metas = await Metas();
     const title = document.createElement("title");
-    title.textContent = "捻れたバベル";
+    title.textContent = "トップページ";
 
     const aboutH2 = document.createElement("h2");
-    aboutH2.textContent = "ABOUT";
+    aboutH2.textContent = "概要";
     const aboutP = document.createElement("p");
     aboutP.textContent = "準備中......";
     const contents = (await getData({
@@ -16,7 +16,7 @@ const TopPage: Fabric<{}> = async () => {
         options: [["limit", 3]],
     })).contents;
     const workH2 = document.createElement("h2");
-    workH2.textContent = "WORK";
+    workH2.textContent = "作品";
     const workUl = document.createElement("ul");
     for (const content of contents) {
         const workLi = document.createElement("li");

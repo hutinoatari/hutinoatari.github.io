@@ -10,10 +10,10 @@ const TagPage: Fabric<{}> = async ({ id }) => {
 
     const metas = await Metas();
     const title = document.createElement("title");
-    title.textContent = `${tag.name} | 捻れたバベル`;
+    title.textContent = tag.name;
 
     const h2 = document.createElement("h2");
-    h2.textContent = "GALLERY";
+    h2.textContent = "ギャラリー";
     const h3 = document.createElement("h3");
     h3.textContent = `タグ: ${tag.name}`;
     const contents2 = (await getData({

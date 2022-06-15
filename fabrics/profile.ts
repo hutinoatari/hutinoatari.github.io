@@ -4,10 +4,10 @@ import Metas from "../fibers/Metas.ts";
 const ProfilePage: Fabric<{}> = async () => {
     const metas = await Metas();
     const title = document.createElement("title");
-    title.textContent = "ABOUT | 捻れたバベル";
+    title.textContent = "プロフィール";
 
     const h2 = document.createElement("h2");
-    h2.textContent = "PROFILE";
+    h2.textContent = "プロフィール";
     const dl = document.createElement("dl");
     [
         ["名前", "淵野アタリ"],
