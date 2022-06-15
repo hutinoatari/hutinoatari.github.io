@@ -1,6 +1,7 @@
 import { addNode, document, Fabric, Nozzle } from "../../loom.ts";
 import { cheeseTownToHtml } from "../../libs/cheeseTown.ts";
 import { getData } from "../../libs/microcms.ts";
+import Metas from "../../fibers/Metas.ts";
 
 const WorkPage: Fabric<{}> = async ({ id }) => {
     const work = await getData({
@@ -8,6 +9,7 @@ const WorkPage: Fabric<{}> = async ({ id }) => {
         id,
     });
 
+    const metas = await Metas();
     const title = document.createElement("title");
     title.textContent = `${work.name} | 捻れたバベル`;
 
@@ -26,7 +28,7 @@ const WorkPage: Fabric<{}> = async ({ id }) => {
     div2.innerHTML = cheeseTownToHtml(work.caption);
 
     return {
-        head: [title],
+        head: [...metas, title],
         body: [h2, p, div1, div2],
     };
 };

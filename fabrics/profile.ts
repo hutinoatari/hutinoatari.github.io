@@ -1,6 +1,8 @@
 import { addNode, document, Fabric } from "../loom.ts";
+import Metas from "../fibers/Metas.ts";
 
 const ProfilePage: Fabric<{}> = async () => {
+    const metas = await Metas();
     const title = document.createElement("title");
     title.textContent = "ABOUT | 捻れたバベル";
 
@@ -22,7 +24,7 @@ const ProfilePage: Fabric<{}> = async () => {
     });
 
     return {
-        head: [title],
+        head: [...metas, title],
         body: [h2, dl],
     };
 };

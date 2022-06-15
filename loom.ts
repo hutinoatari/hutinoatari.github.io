@@ -2,7 +2,10 @@ import { Node } from "https://deno.land/x/deno_dom/deno-dom-wasm.ts";
 import { DOMParser } from "https://deno.land/x/deno_dom/deno-dom-wasm.ts";
 
 export type Fiber = {
-    (...args: any[]): Promise<Node | Node[]>;
+    (...args: any[]): Promise<Node>;
+};
+export type Fibers = {
+    (...args: any[]): Promise<Node[]>;
 };
 
 type FabricProps<T> = {
@@ -23,12 +26,13 @@ export type Document = {
 
 const document = new DOMParser().parseFromString("", "text/html");
 
-const addNode = (parent: Node, child: Node | Node[]) => {
+const addNode = (parent: Node, child: Node | Node[]): Node => {
     if (!Array.isArray(child)) {
         parent.appendChild(child);
     } else {
         child.forEach((e) => parent.appendChild(e));
     }
+    return parent;
 };
 
 export { addNode, document };

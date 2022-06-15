@@ -1,5 +1,6 @@
 import { addNode, document, Fabric, Nozzle } from "../../../loom.ts";
 import { getData } from "../../../libs/microcms.ts";
+import Metas from "../../../fibers/Metas.ts";
 
 const TagPage: Fabric<{}> = async ({ id }) => {
     const tag = (await getData({
@@ -7,6 +8,7 @@ const TagPage: Fabric<{}> = async ({ id }) => {
         id,
     }));
 
+    const metas = await Metas();
     const title = document.createElement("title");
     title.textContent = `${tag.name} | 捻れたバベル`;
 
@@ -31,7 +33,7 @@ const TagPage: Fabric<{}> = async ({ id }) => {
     }
 
     return {
-        head: [title],
+        head: [...metas, title],
         body: [h2, h3, workUl],
     };
 };

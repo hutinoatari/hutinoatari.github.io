@@ -1,7 +1,9 @@
 import { addNode, document, Fabric } from "../loom.ts";
 import { getData } from "../libs/microcms.ts";
+import Metas from "../fibers/Metas.ts";
 
 const TopPage: Fabric<{}> = async () => {
+    const metas = await Metas();
     const title = document.createElement("title");
     title.textContent = "捻れたバベル";
 
@@ -26,7 +28,7 @@ const TopPage: Fabric<{}> = async () => {
     }
 
     return {
-        head: [title],
+        head: [...metas, title],
         body: [aboutH2, aboutP, workH2, workUl],
     };
 };
