@@ -10,7 +10,7 @@ const TopPage: Fabric<{}> = async () => {
     const aboutH2 = document.createElement("h2");
     aboutH2.textContent = "概要";
     const aboutP = document.createElement("p");
-    aboutP.textContent = "準備中......";
+    aboutP.textContent = "淵野アタリの手芸サークル。靴紐手芸やウェブアプリを作っている。";
     const contents = (await getData({
         endpoint: "works",
         options: [["limit", 3]],
