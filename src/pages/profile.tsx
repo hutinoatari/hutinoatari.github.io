@@ -7,8 +7,7 @@ const ProfilePage: FC<{}> = () => {
         <>
             <PageHead title="PROFILE" />
 
-            <h2>PROFILE</h2>
-
+            <h2>プロフィール</h2>
             <dl>
                 <dt>名前</dt>
                 <dd>淵野アタリ</dd>

@@ -16,7 +16,7 @@ const LinkPage: FC<Props> = ({ links }) => {
         <>
             <PageHead title="LINK" />
 
-            <h2>LINK</h2>
+            <h2>リンク</h2>
             <ul>
                 {links.map((link: LinkData, i: number) => (
                     <li key={`link-${i}`}>
