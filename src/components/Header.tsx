@@ -14,8 +14,8 @@ const Header: FC<{}> = () => {
                         </Link>
                     </li>
                     <li>
-                        <Link href="/about">
-                            <a>ABOUT</a>
+                        <Link href="/profile">
+                            <a>PROFILE</a>
                         </Link>
                     </li>
                     <li>

@@ -5,7 +5,7 @@ const Footer: FC<{}> = () => {
     return (
         <footer className={styles.center}>
             <p>
-                <small>(C)2021 淵野アタリ</small>
+                <small>&copy;2016 淵野アタリ</small>
             </p>
         </footer>
     );

@@ -14,17 +14,19 @@ const TopPage: FC<Props> = ({ works }) => {
             <PageHead />
 
             <section>
-                <h2>サイト説明</h2>
-                <p>淵野アタリのポートフォリオサイト。</p>
+                <h2>概要</h2>
                 <p>
-                    <Link href="/about">
-                        <a>もっと見る</a>
+                    淵野アタリの手芸サークル。靴紐手芸やフロントエンド開発を行っている。
+                </p>
+                <p>
+                    <Link href="/profile">
+                        <a>プロフィール</a>
                     </Link>
                 </p>
             </section>
 
             <section>
-                <h2>最新3作品</h2>
+                <h2>作品</h2>
                 <ul>
                     {works.map((work: WorkResponse) => (
                         <li key={work.id}>
