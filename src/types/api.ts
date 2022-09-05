@@ -22,13 +22,6 @@ export type WorkResponse = ContentResponse<{
     };
     description: string;
     caption: string;
-    tag: TagResponse;
 }>;
 
 export type WorkListResponse = ListContentsResponse<WorkResponse>;
-
-export type TagResponse = ContentResponse<{
-    name: string;
-}>;
-
-export type TagListResponse = ListContentsResponse<WorkResponse>;

@@ -14,11 +14,9 @@ const parser: Syntax[] = [
         regex: /^\[list\](.+)/,
         convert: (_, text) => {
             const items = text.split("|");
-            return `<ul>${
-                items
-                    .map((item) => `<li>${item.trim()}</li>`)
-                    .join("")
-            }</ul>`;
+            return `<ul>${items
+                .map((item) => `<li>${item.trim()}</li>`)
+                .join("")}</ul>`;
         },
     },
 ];
