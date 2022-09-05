@@ -58,9 +58,7 @@ export const getStaticPaths: GetStaticPaths<Params> = async () => {
     return { paths, fallback: false };
 };
 
-export const getStaticProps: GetStaticProps<Props, Params> = async ({
-    params,
-}) => {
+export const getStaticProps: GetStaticProps = async ({ params }) => {
     const { id } = params as Params;
     const workData = await client.get<WorkListResponse>({
         endpoint: "works",
