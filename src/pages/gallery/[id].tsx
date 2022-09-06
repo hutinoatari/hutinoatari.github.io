@@ -6,6 +6,7 @@ import { GetStaticProps, GetStaticPaths } from "next";
 import { ParsedUrlQuery } from "node:querystring";
 import { client } from "../../libs/client";
 import { cheeseTownToHtml } from "../../libs/cheeseTownForBlog";
+import ExternalLink from "../../components/ExternalLink";
 import { WorkListResponse, WorkResponse } from "../../types/api";
 
 interface Props {
@@ -51,6 +52,13 @@ const WorkPage: FC<Props> = ({ work }) => {
                     height={480}
                 />
             </div>
+            {work.url ? (
+                <p>
+                    作品URL: <ExternalLink url={work.url} title={work.url} />
+                </p>
+            ) : (
+                ""
+            )}
             <div
                 dangerouslySetInnerHTML={{
                     __html: cheeseTownToHtml(work.caption),

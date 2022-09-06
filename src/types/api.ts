@@ -15,6 +15,7 @@ export type ContentResponse<T> = {
 
 export type WorkResponse = ContentResponse<{
     name: string;
+    url?: string;
     image: {
         url: string;
         width: number;
