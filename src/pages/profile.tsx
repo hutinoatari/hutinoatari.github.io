@@ -28,7 +28,7 @@ const ProfilePage: FC<{}> = () => {
                     />
                 </dd>
                 <dt>HP</dt>
-                <dd>https://www.hutinoatari.dev</dd>
+                <dd>hutinoatari.dev</dd>
             </dl>
         </>
     );

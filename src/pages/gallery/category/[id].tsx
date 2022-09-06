@@ -8,38 +8,38 @@ import { client } from "../../../libs/client";
 import {
     WorkListResponse,
     WorkResponse,
-    TagListResponse,
-    TagResponse,
+    CategoryListResponse,
+    CategoryResponse,
 } from "../../../types/api";
 import styles from "../../../styles/Gallery.module.scss";
 
 interface Props {
     works: WorkResponse[];
-    tags: TagResponse[];
-    tag: TagResponse;
+    categories: CategoryResponse[];
+    category: CategoryResponse;
 }
 
 interface Params extends ParsedUrlQuery {
     id: string;
 }
 
-const TagPage: FC<Props> = ({ works, tags, tag }) => {
+const TagPage: FC<Props> = ({ works, categories, category }) => {
     return (
         <>
             <PageHead title="GALLERY" />
 
             <h2>ギャラリー</h2>
-            <h3>タグ</h3>
+            <h3>カテゴリー</h3>
             <ul>
-                {tags.map((tag: TagResponse) => (
-                    <li key={tag.id}>
-                        <Link href={`/gallery/tag/${tag.id}`}>
-                            <a>{tag.name}</a>
+                {categories.map((category: CategoryResponse) => (
+                    <li key={category.id}>
+                        <Link href={`/gallery/category/${category.id}`}>
+                            <a>{category.name}</a>
                         </Link>
                     </li>
                 ))}
             </ul>
-            <h3>作品({tag.name})</h3>
+            <h3>作品({category.name})</h3>
             <div className={styles.container}>
                 {works.map((work: WorkResponse) => (
                     <GalleryPost key={work.id} work={work} />
@@ -50,11 +50,13 @@ const TagPage: FC<Props> = ({ works, tags, tag }) => {
 };
 
 export const getStaticPaths: GetStaticPaths<Params> = async () => {
-    const data = await client.get<TagListResponse>({
-        endpoint: "tags",
+    const data = await client.get<CategoryListResponse>({
+        endpoint: "categories",
     });
 
-    const paths = data.contents.map((content) => `/gallery/tag/${content.id}`);
+    const paths = data.contents.map(
+        (content) => `/gallery/category/${content.id}`
+    );
     return { paths, fallback: false };
 };
 
@@ -64,22 +66,22 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
         endpoint: "works",
         queries: {
             limit: 1024,
-            filters: `tag[equals]${id}`,
+            filters: `category[equals]${id}`,
         },
     });
-    const tagsData = await client.get<TagListResponse>({
-        endpoint: "tags",
+    const categoriesData = await client.get<CategoryListResponse>({
+        endpoint: "categories",
         queries: { limit: 1024 },
     });
-    const tagData = await client.get<WorkListResponse>({
-        endpoint: `tags/${id}`,
+    const categoryData = await client.get<CategoryResponse>({
+        endpoint: `categories/${id}`,
     });
 
     return {
         props: {
             works: workData.contents,
-            tags: tagsData.contents,
-            tag: tagData,
+            categories: categoriesData.contents,
+            category: categoryData,
         },
     };
 };

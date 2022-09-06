@@ -22,13 +22,13 @@ export type WorkResponse = ContentResponse<{
     };
     description: string;
     caption: string;
-    tag: TagResponse;
+    category: CategoryResponse;
 }>;
 
 export type WorkListResponse = ListContentsResponse<WorkResponse>;
 
-export type TagResponse = ContentResponse<{
+export type CategoryResponse = ContentResponse<{
     name: string;
 }>;
 
-export type TagListResponse = ListContentsResponse<WorkResponse>;
+export type CategoryListResponse = ListContentsResponse<CategoryResponse>;

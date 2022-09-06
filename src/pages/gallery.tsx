@@ -6,28 +6,28 @@ import { client } from "../libs/client";
 import {
     WorkListResponse,
     WorkResponse,
-    TagListResponse,
-    TagResponse,
+    CategoryListResponse,
+    CategoryResponse,
 } from "../types/api";
 import styles from "../styles/Gallery.module.scss";
 
 interface Props {
     works: WorkResponse[];
-    tags: TagResponse[];
+    categories: CategoryResponse[];
 }
 
-const GalleryPage: FC<Props> = ({ works, tags }) => {
+const GalleryPage: FC<Props> = ({ works, categories }) => {
     return (
         <>
             <PageHead title="GALLERY" />
 
             <h2>ギャラリー</h2>
-            <h3>タグ</h3>
+            <h3>カテゴリー</h3>
             <ul>
-                {tags.map((tag: TagResponse) => (
-                    <li key={tag.id}>
-                        <Link href={`/gallery/tag/${tag.id}`}>
-                            <a>{tag.name}</a>
+                {categories.map((category: CategoryResponse) => (
+                    <li key={category.id}>
+                        <Link href={`/gallery/category/${category.id}`}>
+                            <a>{category.name}</a>
                         </Link>
                     </li>
                 ))}
@@ -47,14 +47,14 @@ export const getStaticProps = async () => {
         endpoint: "works",
         queries: { limit: 1024 },
     });
-    const tagData = await client.get<TagListResponse>({
-        endpoint: "tags",
+    const categoryData = await client.get<CategoryListResponse>({
+        endpoint: "categories",
         queries: { limit: 1024 },
     });
     return {
         props: {
             works: workData.contents,
-            tags: tagData.contents,
+            categories: categoryData.contents,
         },
     };
 };

@@ -1,6 +1,7 @@
 import { FC } from "react";
 import Head from "next/head";
 import Image from "next/image";
+import Link from "next/link";
 import { GetStaticProps, GetStaticPaths } from "next";
 import { ParsedUrlQuery } from "node:querystring";
 import { client } from "../../libs/client";
@@ -36,6 +37,12 @@ const WorkPage: FC<Props> = ({ work }) => {
             </Head>
 
             <h2>{work.name}</h2>
+            <p>
+                カテゴリー:{" "}
+                <Link href={`/gallery/category/${work.category.id}`}>
+                    <a>{work.category.name}</a>
+                </Link>
+            </p>
             <div>
                 <Image
                     alt={`${work.name}の画像`}
