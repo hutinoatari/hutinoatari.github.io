@@ -1,0 +1,14 @@
+header, footer {
+    text-align: center;
+}
+img {
+    width: 100%;
+    max-width: 1080px;
+}
+figcaption {
+    text-align: center;
+}
+
+a {
+    text-decoration: none;
+}
