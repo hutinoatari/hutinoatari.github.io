@@ -11,3 +11,9 @@ figcaption {
 a {
     text-decoration: none;
 }
+table {
+    border-spacing: 0;
+}
+table, th, td {
+    border: solid 1px;
+}
