@@ -82,7 +82,7 @@ const ProfilePage: FC<{}> = () => {
             month: 4,
         },
     ];
-    
+
     return (
         <>
             <PageHead title="PROFILE" />

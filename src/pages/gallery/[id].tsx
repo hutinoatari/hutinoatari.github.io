@@ -71,6 +71,7 @@ const WorkPage: FC<Props> = ({ work }) => {
 export const getStaticPaths: GetStaticPaths<Params> = async () => {
     const data = await client.get<WorkListResponse>({
         endpoint: "works",
+        queries: { limit: 1024 },
     });
 
     const paths = data.contents.map((content) => `/gallery/${content.id}`);
