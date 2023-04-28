@@ -88,28 +88,21 @@ const ProfilePage: FC<{}> = () => {
             <PageHead title="PROFILE" />
 
             <h2>プロフィール</h2>
-            <dl>
-                <dt>名前</dt>
-                <dd>淵野アタリ</dd>
-                <dt>サークル</dt>
-                <dd>捻れたバベル</dd>
-                <dt>Twitter</dt>
-                <dd>
+            <p>淵野アタリ</p>
+            <ul>
+                <li>
                     <ExternalLink
-                        title="@hutinoatari"
+                        title="Twitter"
                         url="https://twitter.com/hutinoatari"
                     />
-                </dd>
-                <dt>GitHub</dt>
-                <dd>
+                </li>
+                <li>
                     <ExternalLink
-                        title="hutinoatari"
+                        title="GitHub"
                         url="https://github.com/hutinoatari"
                     />
-                </dd>
-                <dt>HP</dt>
-                <dd>hutinoatari.dev</dd>
-            </dl>
+                </li>
+            </ul>
 
             <h2>既訪一覧</h2>
             <p>括弧内は初訪年月。</p>
