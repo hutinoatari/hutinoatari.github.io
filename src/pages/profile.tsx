@@ -5,79 +5,84 @@ import ExternalLink from "../components/ExternalLink";
 const ProfilePage: FC<{}> = () => {
     const raceCourseList = [
         {
-            name: "東京",
+            name: "東京競馬",
             year: 2022,
             month: 6,
         },
         {
-            name: "園田",
+            name: "園田競馬",
             year: 2022,
             month: 9,
         },
         {
-            name: "浦和",
+            name: "浦和競馬",
             year: 2022,
             month: 10,
         },
         {
-            name: "大井",
+            name: "大井競馬",
             year: 2022,
             month: 11,
         },
         {
-            name: "川崎",
+            name: "川崎競馬",
             year: 2022,
             month: 12,
         },
         {
-            name: "船橋",
+            name: "船橋競馬",
             year: 2023,
             month: 1,
         },
         {
-            name: "中山",
+            name: "中山競馬",
+            year: 2023,
+            month: 4,
+        },
+        {
+            name: "さがら草競馬",
             year: 2023,
             month: 4,
         },
     ];
     const jiroList = [
         {
-            name: "府中",
+            name: "府中店",
             year: 2021,
             month: 5,
         },
         {
-            name: "仙川",
+            name: "仙川店",
             year: 2022,
             month: 10,
         },
         {
-            name: "小岩",
+            name: "小岩店",
             year: 2023,
             month: 1,
         },
         {
-            name: "小滝橋",
+            name: "新宿小滝橋通り店",
             year: 2023,
             month: 1,
         },
         {
-            name: "歌舞伎町",
+            name: "新宿歌舞伎町店",
             year: 2023,
             month: 2,
         },
         {
-            name: "立川",
+            name: "立川店",
             year: 2023,
             month: 3,
         },
         {
-            name: "新潟",
+            name: "新潟店",
             year: 2023,
             month: 3,
         },
         {
-            name: "三田",
+            name: "三田本店",
             year: 2023,
             month: 4,
         },
@@ -107,6 +112,7 @@ const ProfilePage: FC<{}> = () => {
             <h2>既訪一覧</h2>
             <p>括弧内は初訪年月。</p>
             <h3>競馬</h3>
+            <p>現地で観戦した場所のみ。</p>
             <ul>
                 {raceCourseList.map((e) => (
                     <li>{`${e.name}(${e.year}/${e.month})`}</li>
