@@ -44,6 +44,16 @@ const ProfilePage: FC<{}> = () => {
             year: 2023,
             month: 4,
         },
+        {
+            name: "賀茂競馬",
+            year: 2023,
+            month: 5,
+        },
+        {
+            name: "京都競馬",
+            year: 2023,
+            month: 5,
+        },
     ];
     const jiroList = [
         {
@@ -85,6 +95,11 @@ const ProfilePage: FC<{}> = () => {
             name: "三田本店",
             year: 2023,
             month: 4,
+        },
+        {
+            name: "環七新代田店",
+            year: 2023,
+            month: 5,
         },
     ];
 
