@@ -122,6 +122,12 @@ const ProfilePage: FC<{}> = () => {
                         url="https://github.com/hutinoatari"
                     />
                 </li>
+                <li>
+                    <ExternalLink
+                        title="はてなブログ"
+                        url="https://hutinoatari.hatenablog.com"
+                    />
+                </li>
             </ul>
 
             <h2>既訪一覧</h2>
