@@ -1,6 +1,7 @@
 import { FC } from "react";
 import PageHead from "../components/PageHead";
 import ExternalLink from "../components/ExternalLink";
+import Image from "next/image";
 
 const ProfilePage: FC<{}> = () => {
     const raceCourseList = [
@@ -54,6 +55,11 @@ const ProfilePage: FC<{}> = () => {
             year: 2023,
             month: 5,
         },
+        {
+            name: "金沢競馬",
+            year: 2023,
+            month: 6,
+        },
     ];
     const jiroList = [
         {
@@ -101,6 +107,11 @@ const ProfilePage: FC<{}> = () => {
             year: 2023,
             month: 5,
         },
+        {
+            name: "京急川崎店",
+            year: 2023,
+            month: 6,
+        },
     ];
 
     return (
@@ -108,7 +119,10 @@ const ProfilePage: FC<{}> = () => {
             <PageHead title="PROFILE" />
 
             <h2>プロフィール</h2>
-            <p>淵野アタリ</p>
+            <figure>
+                <Image src="/face.jpg" width={256} height={256} />
+                <figcaption>淵野アタリ</figcaption>
+            </figure>
             <ul>
                 <li>
                     <ExternalLink
