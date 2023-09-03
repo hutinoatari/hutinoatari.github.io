@@ -60,6 +60,11 @@ const ProfilePage: FC<{}> = () => {
             year: 2023,
             month: 6,
         },
+        {
+            name: "笠松競馬",
+            year: 2023,
+            month: 8,
+        },
     ];
     const jiroList = [
         {
