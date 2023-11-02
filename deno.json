@@ -1,0 +1,20 @@
+{
+    "compilerOptions": {
+        "lib": [
+            "deno.unstable",
+            "deno.ns",
+            "DOM",
+            "DOM.Iterable",
+            "esnext"
+        ],
+        "strict": false
+    },
+    "fmt": {
+        "options": {
+            "indentWidth": 4
+        }
+    },
+    "tasks": {
+        "build": "deno run -A --importmap=import_map.json build.ts"
+    }
+}
