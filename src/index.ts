@@ -95,7 +95,7 @@ const topPage: Fabric = {
                             children: [
                                 {
                                     name: "small",
-                                    children: "©2016 淵野アタリ",
+                                    children: "&copy;2016 淵野アタリ",
                                 },
                             ],
                         },

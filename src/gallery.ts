@@ -1,5 +1,7 @@
 import { Fabric } from "../loom.ts";
 
+import works from "../data/works.json" assert { type: "json" };
+
 const galleryPage: Fabric = {
     name: "html",
     options: [["lang", "ja"]],
@@ -73,8 +75,18 @@ const galleryPage: Fabric = {
                             children: "作品",
                         },
                         {
-                            name: "p",
-                            children: "準備中。",
+                            name: "ul",
+                            children: works.toReversed().map((work) => ({
+                                name: "li",
+                                children: [{
+                                    name: "a",
+                                    options: [[
+                                        "href",
+                                        `./gallery/${work.id}.html`,
+                                    ]],
+                                    children: work.name,
+                                }],
+                            })),
                         },
                     ],
                 },
@@ -86,7 +98,7 @@ const galleryPage: Fabric = {
                             children: [
                                 {
                                     name: "small",
-                                    children: "©2016 淵野アタリ",
+                                    children: "&copy;2016 淵野アタリ",
                                 },
                             ],
                         },

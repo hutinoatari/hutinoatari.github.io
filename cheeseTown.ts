@@ -1,6 +1,6 @@
 interface Syntax {
     regex: RegExp;
-    convert(...args: string[]): string | Promise<string>;
+    convert(...args: string[]): string;
 }
 
 const parser: Syntax[] = [
@@ -39,21 +39,21 @@ const parser: Syntax[] = [
     },
 ];
 
-const cheeseTownToHtml = async (markup: string): Promise<string> => {
+const cheeseTownToHtml = (markup: string): string => {
     const lines = markup
         .replace(/[<>]/g, (c) => (c === "<" ? "&lt;" : "&gt;"))
         .split("\n")
         .filter((e) => e.trim() !== "");
-    const html = (await Promise.all(lines
-        .map(async (line) => {
+    const html = lines
+        .map((line) => {
             for (const syntax of parser) {
                 const match = line.match(syntax.regex);
-                if (match !== null) return await syntax.convert(...match);
+                if (match !== null) return syntax.convert(...match);
             }
             return `<p>${line.trim()}</p>`;
-        })))
+        })
         .join("");
-    return new Promise((res) => res(html));
+    return html;
 };
 
 export { cheeseTownToHtml };

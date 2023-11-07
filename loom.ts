@@ -19,8 +19,7 @@ const weave = (fabric: Fabric) => {
             element.appendChild(weave(child));
         }
     } else {
-        const text = document.createTextNode(fabric.children);
-        element.appendChild(text);
+        element.innerHTML = fabric.children;
     }
     return element;
 };
