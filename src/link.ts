@@ -1,6 +1,8 @@
 import { Fabric } from "../loom.ts";
 
-const topPage: Fabric = {
+import links from "../data/links.json" assert { type: "json" };
+
+const linkPage: Fabric = {
     name: "html",
     options: [["lang", "ja"]],
     children: [
@@ -83,20 +85,21 @@ const topPage: Fabric = {
                     children: [
                         {
                             name: "h2",
-                            children: "概要",
+                            children: "友達",
                         },
                         {
-                            name: "p",
-                            children:
-                                "身の回りに仕組みの不明なものがあるのは気持ち悪い。",
-                        },
-                        {
-                            name: "h3",
-                            children: "靴紐細工とは",
-                        },
-                        {
-                            name: "p",
-                            children: "靴紐で動物の姿形を再現する技術。",
+                            name: "ul",
+                            children: links.map((link) => ({
+                                name: "li",
+                                children: [{
+                                    name: "a",
+                                    options: [["href", link.url], [
+                                        "target",
+                                        "_blank",
+                                    ]],
+                                    children: link.name,
+                                }],
+                            })),
                         },
                     ],
                 },
@@ -119,4 +122,4 @@ const topPage: Fabric = {
     ],
 };
 
-export default topPage;
+export default linkPage;

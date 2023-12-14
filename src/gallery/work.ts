@@ -67,6 +67,19 @@ const workPage: (id) => Fabric = (id) => {
                                                     },
                                                 ],
                                             },
+                                            {
+                                                name: "li",
+                                                children: [
+                                                    {
+                                                        name: "a",
+                                                        options: [[
+                                                            "href",
+                                                            "../link.html",
+                                                        ]],
+                                                        children: "友達",
+                                                    },
+                                                ],
+                                            },
                                         ],
                                     },
                                 ],

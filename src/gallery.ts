@@ -61,6 +61,19 @@ const galleryPage: Fabric = {
                                                 },
                                             ],
                                         },
+                                        {
+                                            name: "li",
+                                            children: [
+                                                {
+                                                    name: "a",
+                                                    options: [[
+                                                        "href",
+                                                        "./link.html",
+                                                    ]],
+                                                    children: "友達",
+                                                },
+                                            ],
+                                        },
                                     ],
                                 },
                             ],
