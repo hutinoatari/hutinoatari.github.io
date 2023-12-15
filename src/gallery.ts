@@ -88,6 +88,11 @@ const galleryPage: Fabric = {
                             children: "作品",
                         },
                         {
+                            name: "p",
+                            children:
+                                "旧サイトから作品ページ移植中(2023/12/15,16中に終わらせる予定)。",
+                        },
+                        {
                             name: "ul",
                             children: works.toReversed().map((work) => ({
                                 name: "li",
