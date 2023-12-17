@@ -90,7 +90,7 @@ const galleryPage: Fabric = {
                         {
                             name: "p",
                             children:
-                                "旧サイトから作品ページ移植中(2023/12/15,16中に終わらせる予定)。",
+                                "旧サイトから作品ページ移植中。",
                         },
                         {
                             name: "ul",
