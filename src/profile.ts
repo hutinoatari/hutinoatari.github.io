@@ -95,6 +95,98 @@ const profilePage: Fabric = {
                                 },
                             ],
                         },
+                        {
+                            name: "p",
+                            children:
+                                "電気通信大学工学研究部2024年度名誉副部長",
+                        },
+                        {
+                            name: "ul",
+                            children: [
+                                {
+                                    name: "li",
+                                    children: [
+                                        {
+                                            name: "a",
+                                            options: [["target", "_blank"], [
+                                                "href",
+                                                "https://twitter.com/hutinoatari",
+                                            ]],
+                                            children: "Twitter",
+                                        },
+                                    ],
+                                },
+                                {
+                                    name: "li",
+                                    children: [
+                                        {
+                                            name: "a",
+                                            options: [["target", "_blank"], [
+                                                "href",
+                                                "https://github.com/hutinoatari",
+                                            ]],
+                                            children: "GitHub",
+                                        },
+                                    ],
+                                },
+                            ],
+                        },
+                        {
+                            name: "h3",
+                            children: "好きな作品",
+                        },
+                        {
+                            name: "ul",
+                            children: [
+                                {
+                                    name: "li",
+                                    children: [
+                                        {
+                                            name: "a",
+                                            options: [["target", "_blank"], [
+                                                "href",
+                                                "https://dengekibunko.jp/special/boogiepop/",
+                                            ]],
+                                            children: "ブギーポップシリーズ",
+                                        },
+                                    ],
+                                },
+                                {
+                                    name: "li",
+                                    children: [
+                                        {
+                                            name: "a",
+                                            options: [["target", "_blank"], [
+                                                "href",
+                                                "https://www.cs.furyu.jp/caligula2/",
+                                            ]],
+                                            children: "カリギュラ2",
+                                        },
+                                    ],
+                                },
+                            ],
+                        },
+                        {
+                            name: "h3",
+                            children: "競馬観戦",
+                        },
+                        {
+                            name: "figure",
+                            children: [
+                                {
+                                    name: "img",
+                                    options: [[
+                                        "src",
+                                        "./img/sagaraAmateurHorseRace.jpg",
+                                    ]],
+                                    children: "",
+                                },
+                                {
+                                    name: "figcaption",
+                                    children: "さがら草競馬大会",
+                                },
+                            ],
+                        },
                     ],
                 },
                 {

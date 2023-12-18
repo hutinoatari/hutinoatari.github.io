@@ -89,8 +89,7 @@ const galleryPage: Fabric = {
                         },
                         {
                             name: "p",
-                            children:
-                                "旧サイトから作品ページ移植中。",
+                            children: "旧サイトから作品ページ移植中。",
                         },
                         {
                             name: "ul",
