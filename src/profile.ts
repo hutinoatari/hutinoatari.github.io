@@ -177,15 +177,46 @@ const profilePage: Fabric = {
                                     name: "img",
                                     options: [[
                                         "src",
-                                        "./img/sagaraAmateurHorseRace.jpg",
+                                        "./img/urawakeiba.jpg",
                                     ]],
                                     children: "",
                                 },
                                 {
                                     name: "figcaption",
-                                    children: "さがら草競馬大会",
+                                    children: "浦和競馬 第32回埼玉新聞栄冠賞",
                                 },
                             ],
+                        },
+                        {
+                            name: "p",
+                            children:
+                                "東京、園田、浦和、大井、川崎、船橋、中山、さがら草競馬大会、競馬会神事、京都、金沢、笠松、名古屋、서울(ソウル)、福島",
+                        },
+                        {
+                            name: "h3",
+                            children: "二郎巡り",
+                        },
+                        {
+                            name: "figure",
+                            children: [
+                                {
+                                    name: "img",
+                                    options: [[
+                                        "src",
+                                        "./img/aizujiro.jpg",
+                                    ]],
+                                    children: "",
+                                },
+                                {
+                                    name: "figcaption",
+                                    children: "ラーメン二郎 会津若松駅前店",
+                                },
+                            ],
+                        },
+                        {
+                            name: "p",
+                            children:
+                                "府中、仙川、小岩、小滝橋、歌舞伎町、立川、新潟、三田、新代田、川崎、生田、藤沢、会津",
                         },
                     ],
                 },
