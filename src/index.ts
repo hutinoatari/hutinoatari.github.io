@@ -1,5 +1,7 @@
 import { Fabric } from "../loom.ts";
 
+import works from "../data/works.json" assert { type: "json" };
+
 const topPage: Fabric = {
     name: "html",
     options: [["lang", "ja"]],
@@ -88,7 +90,7 @@ const topPage: Fabric = {
                         {
                             name: "p",
                             children:
-                                "自作することでものごとの仕組みが分かるはずだ。",
+                                "物事の最小単位は技術だ。自作を通して構造を掌握すれば心の皇帝になれるだろう。真に輝けるものに近付けるかもしれない。",
                         },
                         {
                             name: "h3",
@@ -96,7 +98,27 @@ const topPage: Fabric = {
                         },
                         {
                             name: "p",
-                            children: "靴紐で動物の姿形を再現する技術。",
+                            children: "靴紐で生物の姿形を再現する技術。",
+                        },
+                        {
+                            name: "h3",
+                            children: "直近の作品",
+                        },
+                        {
+                            name: "ul",
+                            children: works.toReversed().slice(0, 3).map(
+                                (work) => ({
+                                    name: "li",
+                                    children: [{
+                                        name: "a",
+                                        options: [[
+                                            "href",
+                                            `./gallery/${work.id}.html`,
+                                        ]],
+                                        children: work.name,
+                                    }],
+                                }),
+                            ),
                         },
                     ],
                 },
