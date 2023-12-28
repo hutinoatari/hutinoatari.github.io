@@ -37,6 +37,12 @@ const parser: Syntax[] = [
             return `<figure><img src="${url.trim()}"><figcaption>${caption.trim()}</figcaption></figure>`;
         },
     },
+    {
+        regex: /^\[link\]\{(.+)\}(.+)/,
+        convert: (_, url, text) => {
+            return `<p><a href=${url.trim()} target="_blank">${text.trim()}</a></p>`;
+        },
+    },
 ];
 
 const cheeseTownToHtml = (markup: string): string => {

@@ -102,6 +102,14 @@ const galleryPage: Fabric = {
                                         `./gallery/${work.id}.html`,
                                     ]],
                                     children: work.name,
+                                }, {
+                                    name: "ul",
+                                    children: [
+                                        {
+                                            name: "li",
+                                            children: work.caption,
+                                        },
+                                    ],
                                 }],
                             })),
                         },

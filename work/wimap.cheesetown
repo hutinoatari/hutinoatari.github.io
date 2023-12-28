@@ -1,1 +1,15 @@
-準備中。
+[section] 概要
+現在地を地図に表示する。過去のデータと繋げて経路も見られる。
+[link]{https://wimap-hutinoatari.vercel.app/} https://wimap-hutinoatari.vercel.app/
+[picture]{../img/wimap.png} うどん旅行の経路
+
+[section] 目的
+旅行先での到着時のツイートに地図があると分かりやすい。位置を特定されにくいようにサイズを小さくした。
+
+[section] 実装
+NextJSを採用。
+GeolocationAPIで取得した位置情報をLocalStorageに保持、canvas要素で地図と合成する。
+
+[section] 命名
+最初は現在地を表示する機能だけだった。今(ima)の自分(I)の地図(map)のアプリ(app)なのでiMap(イマップ)とした。iが小文字なのはiPhoneのもじりだ。
+座標を記憶して繋ぐ機能を追加する際にアイ(I)を複数形のウィ(we)に変更してWiMap(ウィマップ)になった。
