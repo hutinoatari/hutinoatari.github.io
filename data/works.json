@@ -1,63 +1,18 @@
 [
     {
-        "id": "snail",
-        "name": "カタツムリ",
-        "caption": ""
-    },
-    {
         "id": "dragonfly",
         "name": "トンボ",
-        "caption": ""
-    },
-    {
-        "id": "jerryfish",
-        "name": "クラゲ",
-        "caption": ""
-    },
-    {
-        "id": "scissors",
-        "name": "ハサミ",
-        "caption": ""
-    },
-    {
-        "id": "nepenthes",
-        "name": "ウツボカズラ",
-        "caption": ""
-    },
-    {
-        "id": "seaslug",
-        "name": "アオウミウシ",
-        "caption": ""
-    },
-    {
-        "id": "orochi",
-        "name": "オロチ",
-        "caption": ""
-    },
-    {
-        "id": "douji",
-        "name": "ドウジ",
-        "caption": ""
-    },
-    {
-        "id": "babelgacha",
-        "name": "バベルガチャ",
-        "caption": ""
-    },
-    {
-        "id": "babelgacha2",
-        "name": "バベルガチャ2",
-        "caption": ""
+        "caption": "靴紐細工"
     },
     {
         "id": "spacewandering",
         "name": "Space Wandering",
-        "caption": ""
+        "caption": "ミニゲーム集"
     },
     {
         "id": "tinycamera",
         "name": "tinyCamera",
-        "caption": ""
+        "caption": "カメラアプリ"
     },
     {
         "id": "wimap",
@@ -67,71 +22,41 @@
     {
         "id": "deadlinebarelist",
         "name": "期限ギリギリスト",
-        "caption": ""
-    },
-    {
-        "id": "shokujinsetapp",
-        "name": "食神セタップ",
-        "caption": ""
+        "caption": "タスク管理アプリ"
     },
     {
         "id": "canseeyousystem",
         "name": "c-sys",
-        "caption": ""
+        "caption": "混雑可視化アプリ"
     },
     {
         "id": "portfoliosite",
         "name": "hutinoatari.dev",
-        "caption": ""
+        "caption": "ポートフォリオ"
     },
     {
         "id": "plarail2021",
         "name": "プラレール企画2021",
-        "caption": ""
-    },
-    {
-        "id": "tonjiruudon",
-        "name": "豚汁うどん",
-        "caption": ""
-    },
-    {
-        "id": "cheesetown",
-        "name": "CheeseTown",
-        "caption": ""
+        "caption": "プラレール遠隔操作体験企画"
     },
     {
         "id": "nobide",
         "name": "Nobide",
-        "caption": ""
-    },
-    {
-        "id": "tonkotsuramen",
-        "name": "博多豚骨ラーメン",
-        "caption": ""
+        "caption": "動画生成ツール"
     },
     {
         "id": "chofuraceportal",
         "name": "調布競馬ポータル",
-        "caption": ""
-    },
-    {
-        "id": "kokentrancer",
-        "name": "工研トランサー",
-        "caption": ""
-    },
-    {
-        "id": "curryrice",
-        "name": "カレー",
-        "caption": ""
-    },
-    {
-        "id": "oyaki",
-        "name": "おやき",
-        "caption": ""
+        "caption": "調布競馬情報サイト"
     },
     {
         "id": "sushinovel",
         "name": "激斗！寿司職人大会神奈川県予選第四試合",
-        "caption": "寿司小説"
+        "caption": "寿司小説同人誌"
+    },
+    {
+        "id": "rorarurui",
+        "name": "漏濫流涙",
+        "caption": "競争用4足歩行ロボット"
     }
 ]

@@ -166,27 +166,6 @@ const profilePage: Fabric = {
                                 },
                             ],
                         },
-                        {
-                            name: "h3",
-                            children: "競馬観戦",
-                        },
-                        {
-                            name: "figure",
-                            children: [
-                                {
-                                    name: "img",
-                                    options: [[
-                                        "src",
-                                        "./img/sagaraAmateurRace.png",
-                                    ]],
-                                    children: "",
-                                },
-                                {
-                                    name: "figcaption",
-                                    children: "さがら草競馬大会",
-                                },
-                            ],
-                        },
                     ],
                 },
                 {

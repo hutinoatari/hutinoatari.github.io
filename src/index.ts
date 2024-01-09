@@ -88,11 +88,6 @@ const topPage: Fabric = {
                             children: "概要",
                         },
                         {
-                            name: "p",
-                            children:
-                                "物事の最小単位は技術だ。自作を通して構造を掌握すれば心の皇帝になれるだろう。真に輝けるものに近付けるかもしれない。",
-                        },
-                        {
                             name: "h3",
                             children: "靴紐細工とは",
                         },
