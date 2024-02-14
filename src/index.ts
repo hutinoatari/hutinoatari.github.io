@@ -42,19 +42,6 @@ const topPage: Fabric = {
                                                     name: "a",
                                                     options: [[
                                                         "href",
-                                                        "./profile.html",
-                                                    ]],
-                                                    children: "人相",
-                                                },
-                                            ],
-                                        },
-                                        {
-                                            name: "li",
-                                            children: [
-                                                {
-                                                    name: "a",
-                                                    options: [[
-                                                        "href",
                                                         "./gallery.html",
                                                     ]],
                                                     children: "作品",
@@ -89,11 +76,21 @@ const topPage: Fabric = {
                         },
                         {
                             name: "h3",
-                            children: "靴紐細工とは",
+                            children: "人相",
                         },
                         {
-                            name: "p",
-                            children: "靴紐で生物の姿形を再現する技術。",
+                            name: "figure",
+                            children: [
+                                {
+                                    name: "img",
+                                    options: [["src", "./img/face.png"]],
+                                    children: "",
+                                },
+                                {
+                                    name: "figcaption",
+                                    children: "アイコン"
+                                }
+                            ],
                         },
                         {
                             name: "h3",
@@ -114,6 +111,76 @@ const topPage: Fabric = {
                                     }],
                                 }),
                             ),
+                        },
+                        {
+                            name: "h3",
+                            children: "趣味"
+                        },
+                        {
+                            name: "ul",
+                            children: [
+                                {
+                                    name: "li",
+                                    children: "うどん",
+                                },
+                                {
+                                    name: "ul",
+                                    children: [
+                                        {
+                                            name: "li",
+                                            children: "たまに小麦粉を捏ねる。",
+                                        },
+                                    ],
+                                },
+                                {
+                                    name: "li",
+                                    children: "読書",
+                                },
+                                {
+                                    name: "ul",
+                                    children: [
+                                        {
+                                            name: "li",
+                                            children: "好きな作家は上遠野浩平。",
+                                        },
+                                    ],
+                                },
+                            ],
+                        },
+                        {
+                            name: "h3",
+                            children: "外部"
+                        },
+                        {
+                            name: "ul",
+                            children: [
+                                {
+                                    name: "li",
+                                    children: [
+                                        {
+                                            name: "a",
+                                            options: [["target", "_blank"], [
+                                                "href",
+                                                "https://twitter.com/hutinoatari",
+                                            ]],
+                                            children: "Twitter",
+                                        },
+                                    ],
+                                },
+                                {
+                                    name: "li",
+                                    children: [
+                                        {
+                                            name: "a",
+                                            options: [["target", "_blank"], [
+                                                "href",
+                                                "https://github.com/hutinoatari",
+                                            ]],
+                                            children: "GitHub",
+                                        },
+                                    ],
+                                },
+                            ],
                         },
                     ],
                 },
