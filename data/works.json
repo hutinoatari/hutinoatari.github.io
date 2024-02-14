@@ -58,5 +58,10 @@
         "id": "rorarurui",
         "name": "漏濫流涙",
         "caption": "競争用4足歩行ロボット"
+    },
+    {
+        "id": "chofumachinerace",
+        "name": "調布機械制作奨励競馬大会",
+        "caption": "4足歩行ロボットレース"
     }
 ]
