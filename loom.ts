@@ -1,27 +1,4 @@
-import { DOMParser } from "https://deno.land/x/deno_dom/deno-dom-wasm.ts";
-const document = new DOMParser().parseFromString("", "text/html");
+const cover = (head: string, body: string) =>
+    `<!DOCTYPE html><html lang="ja"><head>${head}</head><body><header><h1>淵野アタリ</h1><nav><ul><li><a href="./index.html">概要</a></li><li><a href="./work.html">作品</a></li></ul></nav></header><main>${body}</main><footer><p><small>&copy;2016 淵野アタリ</small></p></footer></body></html>`;
 
-export interface Fabric {
-    name: string;
-    options?: [string, string][];
-    children: Fabric[] | string;
-}
-
-const weave = (fabric: Fabric) => {
-    const element = document.createElement(fabric.name);
-    if (fabric.options) {
-        for (const [key, value] of fabric.options) {
-            element.setAttribute(key, value);
-        }
-    }
-    if (Array.isArray(fabric.children)) {
-        for (const child of fabric.children) {
-            element.appendChild(weave(child));
-        }
-    } else {
-        element.innerHTML = fabric.children;
-    }
-    return element;
-};
-
-export { document, weave };
+export { cover };
