@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>淵野アタリ | Can See You System</title>
+</head>
+<body>
+    <header>
+        <h1><a href="../index.html">淵野アタリ</a></h1>
+        <p><a href="../work.html">作品</a></p>
+    </header>
+    <main>
+        <h2>Can See You System</h2>
+        <p><a href="https://github.com/gotti/c-sys" target="_blank">リポジトリ</a>(アプリ公開停止中)</p>
+        <h3>概要</h3>
+        <p>コロナ禍で密の回避が要求される中，サークルの部室の混雑状況を可視化するアプリ．部室に設置したマイコンで新型コロナウイルス接触確認アプリ(COCOA)の通信を測位し，位置データを蓄積して表示する．有志の部員達で開発した．表示UIの実装を担当．COCOAのサービス終了に伴い開発および公開を中止した．</p>
+        <h3>工夫</h3>
+        <p>JSX(NextJS)とSVGの相性に着目した．CanvasAPIなどに対して，どちらもHTML形式なのでそのまま適用できるし，コンポーネント化によってReactの再レンダリングに乗せられる．この組み合わせは後のプラレール企画2021(プラレールを遠隔で操作できる企画，路線図UIを担当)にも流用した．</p>
+        <p>また，開発中止によってほとんどが未実装になってしまったが，混雑の可視化という目的を実現するために適した表示内容とそれに必要なAPIについてチームメンバーと議論した．</p>
+    </main>
+    <footer>
+        <p><small>&copy;2016 淵野アタリ</small></p>
+    </footer>
+</body>
+</html>

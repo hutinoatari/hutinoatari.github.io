@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>淵野アタリ | Space Wandering</title>
+</head>
+<body>
+    <header>
+        <h1><a href="../index.html">淵野アタリ</a></h1>
+        <p><a href="../work.html">作品</a></p>
+    </header>
+    <main>
+        <h2>Space Wandering</h2>
+        <p><a href="https://trpfrog.github.io/medipro-game/" target="_blank">配布ページ</a></p>
+        <h3>概要</h3>
+        <p>大学の授業でチーム開発を行い作ったゲーム．ロケットで宇宙を飛び，配置された星でミニゲームを遊んでメダルを集めるというもの．操作部のプログラムを担当．</p>
+        <h3>工夫</h3>
+        <p>操作部が負う責務として次の2つを設定した．</p>
+        <ol>
+            <li>プレイヤーが思った通りに操作できること</li>
+            <li>実行環境によって差を生まないこと</li>
+        </ol>
+        <p>必要な操作の洗い出し，キーへの割り当て，各動作の挙動をチームメンバーと相談しながら策定した．</p>
+        <p>また，標準実装の<code>keyPressed</code>には次の3つの問題があり責務を果たせない．また，マウスやタッチパッドによる入力についても考慮する必要がある．</p>
+        <ol>
+            <li>キー入力を1つしか受け付けないので同時押しができない</li>
+            <li><code>keyPressed</code>が発火する間隔が環境によって異なる</li>
+            <li>長押し動作時に1回目の発火と2回目以降の発火の間にラグがあり操作感が悪い</li>
+        </ol>
+        <p>これらはどれも入力の反映のタイミングに関する問題なので<code>keyPressed</code>のラッパーを作り操作の入力と処理の分離を行った．</p>
+        <p>キー入力とマウス入力をStateに保持し，両方の入力があった場合はキー入力を優先するようにした．そして入力情報を元に1フレームごとの処理を行う<code>step</code>関数を一定間隔で実行することで環境の差を吸収できた．</p>
+    </main>
+    <footer>
+        <p><small>&copy;2016 淵野アタリ</small></p>
+    </footer>
+</body>
+</html>
